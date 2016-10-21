@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/main">
+<head>
+</head>
+<body>
+	  <section class="content-header" layout:fragment="content-header">
+      <h1>
+        Reports
+        <small>r01: พิมพ์รายชื่อกิจกรรมประจำปี</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><i class="fa fa-files-o"></i> Reports</li>
+        <li class="active">r01</li>
+      </ol>
+    </section>
+
+	<section class="content" layout:fragment="content" >
+		<div id="formCanvas"></div>
+	</section>
+	
+	
+	<div layout:fragment="pageScript">
+		<script type="text/javascript" th:src="@{/static/pagejs/reports/r01.js}"></script>
+	</div>
+</body>
+</html>

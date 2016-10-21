@@ -61,6 +61,32 @@
 			<scope>test</scope>
 		</dependency>
 		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.xmlgraphics</groupId>
+		    <artifactId>xmlgraphics-commons</artifactId>
+		    <version>2.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.xmlgraphics</groupId>
+		    <artifactId>batik-bridge</artifactId>
+		    <version>1.8</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi</artifactId>
+		    <version>3.15</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.15</version>
+		</dependency>
 		<!-- non spring -->
 		<!--  for legacy html5 support for thymeleaf -->
 		<dependency>
@@ -72,6 +98,10 @@
 		<dependency>
 		    <groupId>org.thymeleaf.extras</groupId>
 		    <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.datatype</groupId>
+		    <artifactId>jackson-datatype-jsr310</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.oracle</groupId>
@@ -99,6 +129,13 @@
 			<artifactId>jasperreports-fonts</artifactId>
 			<version>${jasperreport-fonts.version}</version>
 		</dependency>
+		
+		<dependency>
+		    <groupId>net.sf.barcode4j</groupId>
+		    <artifactId>barcode4j</artifactId>
+		    <version>2.1</version>
+		</dependency>
+		
 		
 		<!-- webjars -->
 	    <dependency>
@@ -133,7 +170,7 @@
 				<includes>
 					<include>application.properties</include>
 					<include>messages.properties</include>
-					<include>logback.xml</include>
+
 				</includes>
 				<filtering>true</filtering>
 			</resource>

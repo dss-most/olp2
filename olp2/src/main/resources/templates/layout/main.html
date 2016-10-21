@@ -23,6 +23,9 @@
 <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
  <link rel="stylesheet" th:href="@{/static/adminLTE/css/skins/_all-skins.min.css}">
+ 
+ <!-- extjs -->
+ <link rel="stylesheet" th:href="@{/static/extjs-6.0.1/theme-neptune/resources/theme-neptune-all.css}">
 
 <link th:href="@{/static/css/olp-main.css}" rel="stylesheet" />
 
@@ -36,7 +39,7 @@
     <![endif]-->
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue  layout-top-nav">
 	<div id="aboutApplicationModal" class="modal fade" role="dialog">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
@@ -73,98 +76,65 @@
 <!-- Site wrapper -->
 <div class="wrapper">
 <header class="main-header">
-    <!-- Logo -->
-    <a href="../../index2.html" th:href="@{/}" class="logo">    
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>O</b>PT</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>OLP</b> - PT</span>
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
 
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
-            <a href="#">
-            	<b>Login User : </b> <span class="hidden-xs"><span sec:authentication="name">user</span></span>
-            </a>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-          <li style="padding-top:15px;"><span> | </span></li>
-          <li>
-            <a th:href="@{/logout}">Logout</a>
-          </li>
-        </ul>
-      </div>
+ 	<nav class="navbar navbar-static-top">
+ 		<div class="container">
+ 			<div class="navbar-header">
+  				<a href="../../index2.html" th:href="@{/}" class="navbar-brand"><b>OLP</b> - PT</a>
+          			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            			<i class="fa fa-bars"></i>
+          			</button>
+        	</div>
+        
+ 
+     
+      
+
+	      <div class="navbar-custom-menu">
+	        <ul class="nav navbar-nav">
+	          <!-- User Account: style can be found in dropdown.less -->
+	          <li class="dropdown user user-menu">
+	            <a href="#">
+	            	<b>Login User : </b> <span class="hidden-xs"><span sec:authentication="name">user</span></span>
+	            </a>
+	          </li>
+	          <!-- Control Sidebar Toggle Button -->
+	          <li style="padding-top:15px;"><span> | </span></li>
+	          <li>
+	            <a th:href="@{/logout}">Logout</a>
+	          </li>
+	        </ul>
+	      </div>
+	      
+	     </div>
     </nav>
   </header>
 
-  <!-- =============================================== -->
-   <!-- Left side column. contains the sidebar -->
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu">
-        <li class="header">MAIN NAVIGATION</li>
-        <li class="treeview">
-          <a href="#" th:href="@{/}">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-          </a>          
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-files-o"></i>
-            <span>ระบบรายงาน</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a th:href="@{report/r01}"><i class="fa fa-circle-o"></i>r01:กิจกรรมประจำปี</a></li>
-            <li><a th:href="@{report/r02}"><i class="fa fa-circle-o"></i>r02:ใบแจ้งหนี้รหัสลูกค้า</a></li>
-            <li><a th:href="@{report/r03}"><i class="fa fa-circle-o"></i>r03:ใบแจ้งหนี้เลขลงทะเบียน</a></li>
-            <li><a th:href="@{report/r04}"><i class="fa fa-circle-o"></i>r04:ข้อมูลการลงทะเบียน</a></li>
-          </ul>
-        </li>
-
-      </ul>
-    </section>
-    <!-- /.sidebar -->
-  </aside>
-
-  <!-- =============================================== -->
   
     <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header" layout:fragment="content-header">
-      <h1>
-        Blank page
-        <small>it all starts here</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Examples</a></li>
-        <li class="active">Blank page</li>
-      </ol>
-    </section>
-
-    <!-- Main content -->
-    <section class="content" layout:fragment="content">
-
-
-    </section>
-    <!-- /.content -->
+      <div class="container">
+  
+	    <!-- Content Header (Page header) -->
+	    <section class="content-header" layout:fragment="content-header">
+	      <h1>
+	        Blank page
+	        <small>it all starts here</small>
+	      </h1>
+	      <ol class="breadcrumb">
+	        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+	        <li><a href="#">Examples</a></li>
+	        <li class="active">Blank page</li>
+	      </ol>
+	    </section>
+	
+	    <!-- Main content -->
+	    <section class="content" layout:fragment="content">
+	
+	
+	    </section>
+	    <!-- /.content -->
+  	</div>
   </div>
   <!-- /.content-wrapper -->
 
@@ -390,17 +360,21 @@
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the webPage. load faster -->
-	<script type="text/javascript" src="../../static/js/jquery-1.11.1.js"
+	<script type="text/javascript" 
 		th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
 		
-	<script type="text/javascript" src="../../static/js/bootstrap.js"
+	<script type="text/javascript" 
 		th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
 
-	<script type="text/javascript" src="../../static/pagejs/appUtil.js"
+
+	<script type="text/javascript" 
+		th:src="@{/static/extjs-6.0.1/ext-all.js}"></script>
+
+	<script type="text/javascript" 
 		th:src="@{/static/adminLTE/js/app.js}"></script>
 		
-	<script type="text/javascript" src="../../static/pagejs/appUtil.js"
-		th:src="@{/static/pagejs/appUtil.js}"></script>
+	<script type="text/javascript" 
+		th:src="@{/static/pagejs/appUtils.js}"></script>
 		
 	<script id="errorModalBodyTemplate" type="text/x-handlebars-template">
 		<div>
