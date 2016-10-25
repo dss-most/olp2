@@ -27,4 +27,7 @@ public interface OlpDao {
 
 	public List<Map<String, Object>> findPlanActivitiesByFiscalYear(String fiscalYear, Boolean formatDate);
 	
+	public List<Map<String, Object>> findRegistrationsByFiscalYearAndActivity(String fiscalYear, Integer activityId);
+	
+	
 }

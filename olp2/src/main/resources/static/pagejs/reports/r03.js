@@ -14,7 +14,7 @@ Ext.onReady(function(){
 		id: 'store_registerStore',
 		proxy: {
 			type: 'ajax',
-			url: '/olp/json/listRegister'
+			url: appUrl('/json/listRegister')
 		}
 	});
 	
@@ -23,7 +23,7 @@ Ext.onReady(function(){
 		id: 'store_firstRegisterIdStore',
 		proxy: {
 			type: 'ajax',
-			url: '/olp/json/listRegisterNumber'
+			url: appUrl('/json/listRegisterNumber')
 		}
 	});
 	
@@ -32,19 +32,19 @@ Ext.onReady(function(){
 		id: 'store_lastRegisterIdStore',
 		proxy: {
 			type: 'ajax',
-			url: '/olp/json/listRegisterNumber'
+			url:  appUrl('json/listRegisterNumber')
 		}
 	});
 
 	
 	var simpleForm = Ext.create('Ext.form.Panel', {
 		id : 'mainForm',
-		url : './pdfReportByRegisterIds',
+		url :  appUrl('/reports/pdfReportByRegisterIds'),
 		frame : true,
 		title : 'พิมพ์ใบแจ้งหนี้ชำระค่าธรรมเนียม',
 		bodyStyle : 'padding:5px 5px 0',
 		standardSubmit: true,
-		width : 550,
+		width : 850,
 		fieldDefaults : {
 			msgTarget : 'side',
 			labelWidth : 150
@@ -165,10 +165,10 @@ Ext.onReady(function(){
 			store: registerStore,
 			height: 300,
 			columns: [
-			          {text: "เลขที่ลงทะเบียน", dataIndex: 'REGISTER_NUMBER', width: 100},
-			          {text: "หมายเลขลูกค้า", dataIndex: 'CUSTOMER_CODE', width: 80},
-			          {text: "ชื่อผู้ลงทะเบียน", dataIndex: 'CUSTOMER_NAME_CANDIDATE', width: 150},
-			          {text: "กิจกรรมที่ลงทะเบียน", dataIndex: 'ACTIVITIES', width: 300}
+			          {text: "เลขที่ลงทะเบียน", dataIndex: 'REGISTER_NUMBER', width: 120},
+			          {text: "หมายเลขลูกค้า", dataIndex: 'CUSTOMER_CODE', width: 120},
+			          {text: "ชื่อผู้ลงทะเบียน", dataIndex: 'CUSTOMER_NAME_CANDIDATE', width: 180},
+			          {text: "กิจกรรมที่ลงทะเบียน", dataIndex: 'ACTIVITIES', flex: 1}
 			],
 			selModel: Ext.create('Ext.selection.CheckboxModel', {
 				mode: 'MULTI',
@@ -243,7 +243,7 @@ Ext.onReady(function(){
 						target: '_blank',
 						params: {
 							registerIds : ids,
-							reportPage: 'confirm2Report'
+							reportPage: 'confirm2_letter'
 						}
 					});
 				}

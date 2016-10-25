@@ -56,6 +56,13 @@ public class JsonController {
 		return olpDao.findRegisterNumberByLeadingString(firstString, query);
 	}
 	
+	@RequestMapping(value="/json/listRegisterByActivtiy")
+	public @ResponseBody List<Map <String, Object>> listRegisterByActivity (
+			@RequestParam String fiscalYear,
+			@RequestParam Integer activityId){
+		return olpDao.findRegistrationsByFiscalYearAndActivity(fiscalYear, activityId);
+	}
+	
 	@RequestMapping(value="/json/listRegister") 
 	public @ResponseBody  List<Map<String, Object>> listRegister (
 			@RequestParam String fiscalYear,

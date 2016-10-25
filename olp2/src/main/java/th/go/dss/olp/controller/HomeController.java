@@ -14,15 +14,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView;
 
 import net.sf.jasperreports.engine.JRRewindableDataSource;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import th.go.dss.olp.dao.OlpDao;
 import th.go.dss.olp.poi.AbstractPOIExcelView;
+import th.go.dss.olp.poi.EMSExport;
 import th.go.dss.olp.poi.PlanActivityExcelExport;
 import th.go.dss.olp.reports.ThJasperReportsPdfView;
 
@@ -45,22 +48,10 @@ public class HomeController {
 	}
 	
 	
-	@RequestMapping("/reports/r01") 
-	public String reportR01(Model model) {
+	@RequestMapping("/reports/{reportName}") 
+	public String report(@PathVariable String reportName) {
 		
-		return "reports/r01";
-	}
-	
-	@RequestMapping("/reports/r02") 
-	public String reportR02(Model model) {
-		
-		return "reports/r02";
-	}
-	
-	@RequestMapping("/reports/r03") 
-	public String reportR03(Model model) {
-		
-		return "reports/r03";
+		return "reports/"+reportName;
 	}
 	
 	
@@ -119,20 +110,33 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/reports/pdfReportByRegisterIds")
-	public String pdfInvoiceByRegisterNumber(
+	public ModelAndView pdfInvoiceByRegisterNumber(
 			@RequestParam(required=true) Set<Integer> registerIds,
 			@RequestParam(required=false) String reportPage,
 			@RequestParam(required=false) Boolean chkbx_englishReport,
 			@RequestParam(required=true) String fiscalYear,
-			@RequestParam(required=true) String activityType,
-			Model model) {
+			@RequestParam(required=true) String activityType
+			) {
+		
+		logger.debug("Entering /reports/pdfReportByRegisterIds with reportPage: " + reportPage);
+		
+		
+		final Map<String, Object> model = new HashMap<>();
 		
 		List<Map<String, Object>> list = null;
-		
+		ModelAndView returnView = null;
+		model.put("fiscalYear", fiscalYear);
 		
 		if("excelEMSExport".equals(reportPage)) {
 			list = olpDao.findRegistrationsForEmsByIds(registerIds);
-			model.addAttribute("registrationList", list);
+			model.put("registrationList", list);
+			
+			AbstractPOIExcelView view = new EMSExport();
+			
+			returnView = new ModelAndView(view,model);
+			
+			
+			
 		} else {
 			String activitySearch = " LIKE '%' ";
 			
@@ -143,6 +147,10 @@ public class HomeController {
 			}
 			
 			list = olpDao.findRegistrationsById(registerIds, activitySearch);
+			
+			logger.debug("list.size(): " + list.size());
+			
+			
 		}
 		
 		for(Map<String, Object> map : list) {
@@ -160,22 +168,33 @@ public class HomeController {
 		
 		if(list!= null && list.size() > 0 ) {
 			
-			model.addAttribute("fiscalYear", fiscalYear);
-			
 			if(chkbx_englishReport!=null && chkbx_englishReport == true) {
-				model.addAttribute("isEnglishAddress", true);
+				model.put("isEnglishAddress", true);
 			} else {
-				model.addAttribute("isEnglishAddress", false);
+				model.put("isEnglishAddress", false);
 			}
 			
-			model.addAttribute("feilds", list);
+			model.put("fields", list);
 		}
 		
 		if("quotationReport".equals(reportPage)) {
-			return "testReport";
+			
+			JasperReportsPdfView reportView = new ThJasperReportsPdfView();
+			reportView.setUrl("classpath:reports/invoice.jrxml");
+			reportView.setApplicationContext(appContext);
+			reportView.setReportDataKey("fields");
+			
+			returnView = new ModelAndView(reportView,model);
+		} else {
+			JasperReportsPdfView reportView = new ThJasperReportsPdfView();
+			reportView.setUrl("classpath:reports/"+reportPage+".jrxml");
+			reportView.setApplicationContext(appContext);
+			reportView.setReportDataKey("fields");
+			
+			returnView = new ModelAndView(reportView,model);
 		}
 		
-		return reportPage;
+		return returnView;
 	}
 	
 	@RequestMapping(value="reports/printInvoice") 

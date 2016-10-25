@@ -180,6 +180,74 @@ public class OlpDaoJdbc implements OlpDao {
 		return returnList;
 	}
 
+	
+	
+	
+	@Override
+	public List<Map<String, Object>> findRegistrationsByFiscalYearAndActivity(String fiscalYear, Integer activityId) {
+		// TODO Auto-generated method stub
+		String sql1 = "" +
+				"select r.register_number " +
+				"	, r.end_payment_date " +
+				"	, r.status_regis_form " +
+				"	, ra.c_password " +
+				"	, ap.customer_code " +
+				"	, ap.customer_name_candidate " +
+				"	, a.activity_code " +
+				"	, ex.example_name " +
+				"	, pln.branch_name " +
+				"	, a.activity_name " +
+				"	, ra.exam_num "	+ 
+				"	, ra.amount ra_amount" +
+				"	, a.price " +
+				"	, c.company_th_receipt" +
+				"	, c.add_receipt " +
+				"	, decode(nvl(c.tambon_id_receipt,\'0\'), \'0\', \' \', " +
+                "  			decode(p.province_id, 21 , \'แขวง\'||t.tambon_name, " +
+                "  					\'ตำบล\'||t.tambon_name )) tambon " +
+                "	, decode(p.province_id, 21 , \'เขต\'||d.amphur_name, " +
+				"			\'อำเภอ\'||d.amphur_name ) amphur " +
+				"	, decode(p.province_id, 21 , p.province_name, "+
+				"			\'จังหวัด\'||p.province_name ) province " +
+				"	, c.postcode_receipt postcode " +
+				"from " +
+				"	olp_register r inner join olp_applicant ap on r.applicant_id = ap.id " +
+				"	inner join olp_register_activity ra on ra.register_id = r.id " +  
+				"	inner join olp_activity a on ra.activity_id = a.id " +
+				" 	inner join olp_example ex on a.olp_example_id = ex.id " +
+				"	inner join olp_plan pln on ex.olp_plan_id = pln.id " +
+				"	inner join olp_company c on ap.olp_ref_company_id = c.id " +
+				"	inner join glb_province p on c.province_id_receipt = p.province_id " +
+				"	inner join glb_district d on c.district_id_receipt = d.amphur_id " +
+				"	left outer join glb_tambon t on c.tambon_id_receipt = t.tambon_id " +
+				"where " +
+				"	r.fiscal_year = :fiscalYear " +
+				" 	AND ra.activity_id  = :activityId  " 	+
+				"	AND ra.STATUS_CANCLE_ACTIVITY is null " +	
+				"order by r.register_number asc, ap.customer_code asc,  pln.id asc, ex.id asc ,a.id asc, ra.id asc";
+		
+		
+		
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("fiscalYear", fiscalYear);
+		params.put("activityId", activityId);
+		
+		
+		
+		List<Map<String, Object>> returnList = this.jdbcTemplate.query(
+				sql1,
+				params,
+				genericRowMapper
+				);
+		
+//		logger.debug(sql);
+		logger.debug("fiscalYear: " + fiscalYear);
+		logger.debug("activityId: " + activityId);
+		logger.debug("returnList.size() : " + returnList.size());
+		
+		return returnList;
+	}
+
 	@Override
 	public List<Map<String, Object>> findRegistrationsByFiscalYearAndListofActivities(
 			String fiscalYear, Set<Integer> activityIdSet, Boolean allExceptActivities) {

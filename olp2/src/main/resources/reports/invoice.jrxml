@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
-<!-- 2016-10-21T18:00:45 -->
+<!-- 2016-10-25T09:55:57 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report3" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="10" bottomMargin="20" isFloatColumnFooter="true" uuid="021470aa-8347-4266-83b3-5fc17dc24f92">
 	<property name="ireport.zoom" value="1.2100000000000224"/>
 	<property name="ireport.x" value="0"/>
@@ -454,14 +454,14 @@ ORDER BY id ASC,
 				<staticText>
 					<reportElement positionType="FixRelativeToBottom" x="11" y="439" width="99" height="12" uuid="310ac3c2-2bcc-44e6-98f6-892d29b2a744"/>
 					<textElement textAlignment="Center">
-						<font fontName="TH SarabunPSK"/>
+						<font fontName="TH SarabunPSK" isBold="true"/>
 					</textElement>
 					<text><![CDATA[สำหรับกรมวิทยาศาสตร์บริการ]]></text>
 				</staticText>
 				<staticText>
-					<reportElement positionType="FixRelativeToBottom" x="344" y="439" width="100" height="12" uuid="c90dd466-b69e-4ade-bbe0-ca8b839119f1"/>
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="353" y="439" width="100" height="12" uuid="c90dd466-b69e-4ade-bbe0-ca8b839119f1"/>
 					<textElement textAlignment="Center">
-						<font fontName="TH SarabunPSK"/>
+						<font fontName="TH SarabunPSK" isBold="true"/>
 					</textElement>
 					<text><![CDATA[สำหรับธนาคาร]]></text>
 				</staticText>
