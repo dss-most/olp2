@@ -17,6 +17,13 @@ Ext.onReady(function(){
 		          {name:'ACTIVITY_NAME'},
 		          {name:'PRICE', type: 'number'},
 		          {name:'ROOM_NUMBER'},
+		          {name: 'COMPANY_TH_APPLICANT'},
+		          {name: 'COMPANY_EN_APPLICANT'},
+		          {name: 'ADD_APPLICANT'},
+		          {name: 'ADD_APPLICANT_1'},
+		          {name: 'TAMBON_NAME'},
+		          {name: 'AMPHUR_NAME'},
+		          {name: 'PROVINCE_NAME'},
 		          {name:'CLOSE_APPLICANT_DATE', type: 'date', dateFormat: 'c'},
 		          {name:'START_ACTIVITY_DATE', type: 'date', dateFormat: 'c'},
 		          {name:'EMP_NAME'},
@@ -61,7 +68,7 @@ Ext.onReady(function(){
 		title : 'ข้อมูลการลงทะเบียนกิจกรรม',
 		bodyStyle : 'padding:5px 5px 0',
 		standardSubmit: true,
-		width : 850,
+		width : 900,
 		fieldDefaults : {
 			msgTarget : 'side',
 			labelWidth : 75
@@ -99,7 +106,12 @@ Ext.onReady(function(){
 			typeAhead : true,
 			valueNotFoundText : "ไม่พบรหัสกิจกรรมนี้",
 			minChars : 2,
+			selectOnFocus : true,
 			queryMode : 'local',
+			displayTpl : 	'<tpl for=".">' +
+		    					'{ACTIVITY_CODE} : {ACTIVITY_NAME}' +
+		    					'<tpl if="xindex < xcount"> , </tpl>' +
+		    				'</tpl>',
 			listConfig: {
 				emptyText: "<div style='padding:12px 8px 12px 8px; color:red;'><i class='fa fa-exclamation-circle'></i> ไม่พบรหัสกิจกรรมนี้ กรุณาระบุใหม่</div>",
 //				getInnerTpl : function() {
@@ -125,7 +137,6 @@ Ext.onReady(function(){
 				select : function(combo, records, eOpts) {
 					var g = Ext.getCmp('grid_activity');
 					var s = g.getStore();
-					console.log(records);
 					s.load({
 						params: {
 							fiscalYear: Ext.getCmp('text_fiscalYear').value,
@@ -182,27 +193,32 @@ Ext.onReady(function(){
 			xtype: 'grid',
 			id: 'grid_activity',
 			store: customerStore,
-			height: 300,
+			height: 450,
 			columns: [
-				 	{text: "เลขที่ลงทะเบียน", dataIndex: 'REGISTER_NUMBER', width: 100},	
-				 	{text: "รหัส", dataIndex: 'CUSTOMER_CODE', width: 100 },
-				 	{text: "ขื่อ", dataIndex: 'CUSTOMER_NAME_CANDIDATE', flex:1},
+					{xtype: 'rownumberer',locked: true},
+				 	{text: "เลขที่ลงทะเบียน", dataIndex: 'REGISTER_NUMBER', width: 100, locked: true},
+				 	{text: "รหัส", dataIndex: 'CUSTOMER_CODE', width: 90,locked: true },
+				 	{text: "ขื่อผู้สมัคร", dataIndex: 'CUSTOMER_NAME_CANDIDATE', cellWrap:true, width:160, locked:true},
 				 	{text: "สถานะ", dataIndex: 'STATUS_REGIS_FORM', width: 60 },
-			        {text: "รหัสลับ", dataIndex: 'C_PASSWORD', width: 60 }
+			        {text: "รหัสลับ", dataIndex: 'C_PASSWORD', width: 90 },
+				 	
+				 	{text: "ตำแหน่ง", dataIndex: 'POSITION_CANDIDATE', cellWrap:true, width:180},
+				 	{text: "เบอร์โทรศัพท์", dataIndex: 'TEL_NO', cellWrap:true, width:160},
+				 	{text: "เบอร์มือถือ", dataIndex: 'PHON_NO', cellWrap:true, width:120},
+				 	{text: "โทรสาร", dataIndex: 'FAX_NO', cellWrap:true, width:120},
+				 	{text: "อีเมล์", dataIndex: 'EMAIL', cellWrap:true, width:200},
+				 	
+				 	{text: "หน่วยงาน (ไทย)", dataIndex: 'COMPANY_TH_APPLICANT',  cellWrap:true, width: 200},
+				 	{text: "หน่วยงาน (eng)", dataIndex: 'COMPANY_EN_APPLICANT',  cellWrap:true, width: 200},
+					{text: "ที่อยู่", dataIndex: 'ADD_APPLICANT',  cellWrap:true, width: 200},
+					{text: "ที่อยู่_1", dataIndex: 'ADD_APPLICANT_1',  cellWrap:true, width: 200},
+					{text: "ตำบล", dataIndex: 'TAMBON_NAME',  cellWrap:true, width: 100},
+					{text: "อำเภอ", dataIndex: 'AMPHUR_NAME',  cellWrap:true, width: 100},
+					{text: "จังหวัด", dataIndex: 'PROVINCE_NAME',  cellWrap:true, width: 100},
+				 	
 			          
 			         
 			],
-			selModel: Ext.create('Ext.selection.CheckboxModel', {
-				mode: 'MULTI',
-				checkOnly: false,
-				listeners: {
-					selectionchange: function(rowModel, selected, eOpts) {
-						
-					}
-				}
-				
-				
-			}),
 			frame:false,
 			viewConfig: {
 				emptyText: 'no data!'
@@ -211,98 +227,52 @@ Ext.onReady(function(){
 		}],
 
 		buttons : [  {
-			text: 'พิมพ์ทุกกิจกรรมยกเว้นที่เลือก',
-			id: 'btn_allExceptSelected',
+			text: 'Export เฉพาะกิจกรรม',
+			id: 'btn_export_activity',
 			listeners : {
 				click : function() {
 					var form = this.up('form');
-					var selected = Ext.getCmp('grid_activity').getSelectionModel().getSelection();
-					
-					var ids=[];
-					
-					for(var i=0; i<selected.length;i++) {
-						ids.push(selected[i].data.ID);
-					}
-
-					
 					
 					form.getEl().dom.target = '_blank';
-					
+					var activityId = Ext.getCmp('combo_activityCombo').value;
+					var fiscalYear = Ext.getCmp('text_fiscalYear').value;
 					
 					form.submit({
 						target: '_blank',
 						params: {
-							activityId : ids,
-							allExceptActivityFlag : 'true',
-							reportPage: 'quotationReport'
+							activityId : activityId,
+							fiscalYear: fiscalYear
 						}
 					});
 					
 				}
 			}
 		},{
-			text : 'พิมพ์ใบยืนยัน',
-			id : 'btn_confirm',
+			text : 'Export ทั้งปี' ,
+			id : 'btn_exprot_all',
 			listeners : {
 				click : function() {
 					
 					var form = this.up('form');
-					
-					var selected = Ext.getCmp('grid_activity').getSelectionModel().getSelection();
-					
-					var ids=[];
-					
-					for(var i=0; i<selected.length;i++) {
-						ids.push(selected[i].data.ID);
-					}
-
 					
 					form.getEl().dom.target = '_blank';
 					
+					var fiscalYear = Ext.getCmp('text_fiscalYear').value;
 					
 					form.submit({
 						target: '_blank',
 						params: {
-							activityId : ids,
-							reportPage: 'confirm2Report'
+							activityId : null,
+							fiscalYear: fiscalYear
 						}
 					});
 				}
 			}
-		}, {
-			text : 'พิมพ์ใบแจ้งหนี้',
-			id : 'btn_quotation',
-			listeners : {
-				click : function() {
-					
-					var form = this.up('form');
-					
-					var selected = Ext.getCmp('grid_activity').getSelectionModel().getSelection();
-					
-					var ids=[];
-					
-					for(var i=0; i<selected.length;i++) {
-						ids.push(selected[i].data.ID);
-					}
-
-
-					form.submit({
-						target: '_blank',
-						params: {
-							activityId : ids,
-							reportPage: 'quotationReport'
-						}
-					
-					});
-				}
-			}
-		},{
-			text : 'ยกเลิก'
 		} ]
 	});
 
 	//var el = simpleForm.getEl();
 	//el.dom.target = '_blank';
 	simpleForm.render('formCanvas');
-	 
+
 });

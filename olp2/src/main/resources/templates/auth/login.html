@@ -20,6 +20,12 @@
 		<!-- /.login-logo -->
 		<div class="login-box-body">
 			<p class="login-box-msg">กรุณาใส่ Username/password เพี่อเข้าระบบ</p>
+			<div class="alert alert-error" 
+		     th:if="${param.error}"
+			 th:with='errorMsg=${session["SPRING_SECURITY_LAST_EXCEPTION"].message}'>
+			    เกิดข้อผิดพลาดไม่สามารถ login ได้<br />
+			   สาเหตุ: <span th:text="${errorMsg}">Wrong input!</span> 
+		  </div>
 
 			<form action="../../index2.html" method="post" th:action="@{/login}">
 				<div class="form-group has-feedback">

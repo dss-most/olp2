@@ -25,6 +25,7 @@ import net.sf.jasperreports.engine.JRRewindableDataSource;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import th.go.dss.olp.dao.OlpDao;
 import th.go.dss.olp.poi.AbstractPOIExcelView;
+import th.go.dss.olp.poi.CustomerExport;
 import th.go.dss.olp.poi.EMSExport;
 import th.go.dss.olp.poi.PlanActivityExcelExport;
 import th.go.dss.olp.reports.ThJasperReportsPdfView;
@@ -52,6 +53,32 @@ public class HomeController {
 	public String report(@PathVariable String reportName) {
 		
 		return "reports/"+reportName;
+	}
+	
+	@RequestMapping(value="/reports/exportCustomerRegistration")
+	public ModelAndView exportCustomerRegistration(
+			@RequestParam(required=true) String fiscalYear,
+			@RequestParam Integer activityId){
+		
+		List<Map<String, Object>> list = null;
+		final Map<String, Object> model = new HashMap<>();
+		
+		if(activityId == null) {
+			list = olpDao.findRegistrationsByFiscalYear(fiscalYear);
+		} else {
+		
+			list = olpDao.findRegistrationsByFiscalYearAndActivity(fiscalYear, activityId);
+		}
+		
+		model.put("registrationList", list);
+		model.put("activityId", activityId);
+		model.put("fiscalYear", fiscalYear);
+		
+		AbstractPOIExcelView view = new CustomerExport();
+		ModelAndView returnView = new ModelAndView(view,model);
+		
+		return returnView;
+		
 	}
 	
 	
@@ -127,15 +154,15 @@ public class HomeController {
 		ModelAndView returnView = null;
 		model.put("fiscalYear", fiscalYear);
 		
+		
 		if("excelEMSExport".equals(reportPage)) {
 			list = olpDao.findRegistrationsForEmsByIds(registerIds);
 			model.put("registrationList", list);
 			
 			AbstractPOIExcelView view = new EMSExport();
-			
 			returnView = new ModelAndView(view,model);
 			
-			
+			return returnView;
 			
 		} else {
 			String activitySearch = " LIKE '%' ";

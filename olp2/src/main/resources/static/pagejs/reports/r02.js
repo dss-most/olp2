@@ -73,6 +73,7 @@ Ext.onReady(function(){
 			name : 'fiscalYear',
 			id : 'text_fiscalYear',
 			allowBlank : false,
+			selectOnFocus : true,
 			listeners: {
 				change: function(field, newValue, oldValue, eOpts) {
 					var g = Ext.getCmp('grid_activity');
@@ -101,6 +102,7 @@ Ext.onReady(function(){
 			valueNotFoundText : "ไม่พบรหัสลูกค้าลงทะเบียนในปีนี้",
 			minChars : 2,
 			queryMode : 'remote',
+			selectOnFocus : true,
 			listConfig: {
 				emptyText: "<div style='padding:12px 8px 12px 8px; color:red;'><i class='fa fa-exclamation-circle'></i> ไม่พบรหัสลูกค้าดังกล่าวลงทะเบียน กรุณาระบุใหม่</div>",
 				getInnerTpl : function() {
@@ -285,8 +287,6 @@ Ext.onReady(function(){
 					});
 				}
 			}
-		},{
-			text : 'ยกเลิก'
 		} ]
 	});
 

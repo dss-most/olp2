@@ -7,5 +7,5 @@ if (typeof console === 'undefined') {
 }
 // Globally appName
 function appUrl(url) {
-	return '/olp2/'+url;
+	return '/olp/'+url;
 }

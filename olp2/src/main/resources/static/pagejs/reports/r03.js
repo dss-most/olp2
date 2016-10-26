@@ -60,13 +60,14 @@ Ext.onReady(function(){
 			id : 'text_fiscalYear',
 			minChars: 4,
 			allowBlank : false,
+			selectOnFocus : true,
 			listeners: {
 				change: function(field, newValue, oldValue, eOpts) {
 					var registerIdStore = Ext.getStore('store_firstRegisterIdStore');
-					registerIdStore.getProxy().url="/olp/json/listRegisterNumber/" + newValue + "/";
+					registerIdStore.getProxy().url=appUrl("json/listRegisterNumber/" + newValue + "/");
 					
 					registerIdStore = Ext.getStore('store_lastRegisterIdStore');
-					registerIdStore.getProxy().url="/olp/json/listRegisterNumber/" + newValue + "/";
+					registerIdStore.getProxy().url=appUrl("json/listRegisterNumber/" + newValue + "/");
 					
 					loadGrid(newValue, Ext.getCmp("combo_firstRegisterNumber").value, Ext.getCmp("combo_lastRegisterNumber").value);
 				}
@@ -80,6 +81,7 @@ Ext.onReady(function(){
 			displayField: 'REGISTER_NUMBER',
 			store : firstRegisterIdStore,
 			valueField : 'REGISTER_NUMBER',
+			selectOnFocus : true,
 			typeAhead : true,
 			minChars : 0,
 			queryMode : 'remote',
@@ -104,6 +106,7 @@ Ext.onReady(function(){
 			displayField: 'REGISTER_NUMBER',
 			store : lastRegisterIdStore,
 			valueField : 'REGISTER_NUMBER',
+			selectOnFocus : true,
 			typeAhead : true,
 			minChars : 0,
 			queryMode : 'remote',
@@ -275,9 +278,7 @@ Ext.onReady(function(){
 					});
 				}
 			}
-		},{
-			text : 'ยกเลิก'
-		} ]
+		}]
 	});
 
 	function loadGrid(fiscalYear, firstRegister, lastRegister) {
