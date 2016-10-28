@@ -5,11 +5,16 @@
 
 	<groupId>th.go.dss</groupId>
 	<artifactId>olp2</artifactId>
-	<version>2.0.1-RELEASE</version>
+	<version>2.0.2-RELEASE</version>
 	<packaging>war</packaging>
 
-	<name>olp2</name>
+	<name>olp</name>
 	<description>OLP PT</description>
+	
+	<scm>
+    	<connection>scm:git:https://github.com/dss-most/olp2.git</connection>
+    	<url>https://github.com/dss-most/olp2</url>
+	</scm>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -166,7 +171,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>olp</finalName>
+		<finalName>olp##-${timestamp}-${project.version}-${buildNumber}</finalName>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
@@ -200,6 +205,26 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>buildnumber-maven-plugin</artifactId>
+				<version>1.4</version>
+				<executions>
+					<execution>
+						<phase>validate</phase>
+						<goals>
+							<goal>create</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<doCheck>false</doCheck>
+					<doUpdate>false</doUpdate>
+					<revisionOnScmFailure>DEVELOPMENT</revisionOnScmFailure>
+					<shortRevisionLength>7</shortRevisionLength>
+					<timestampFormat>{0,date,yyyyMMdd_HHmmss}</timestampFormat>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
