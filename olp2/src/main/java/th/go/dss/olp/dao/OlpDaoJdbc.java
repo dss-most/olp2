@@ -293,7 +293,7 @@ public class OlpDaoJdbc implements OlpDao {
 
 				
 				"where " +
-				"	r.fiscal_year = :fiscalYear " +
+				"	r.fiscal_year = :fiscalYear  and r.status_regis_form != 'ST13' " +
 //				"	AND ra.STATUS_CANCLE_ACTIVITY is null " +	
 				"order by ap.customer_code asc, r.register_number asc";
 		
@@ -445,7 +445,7 @@ public class OlpDaoJdbc implements OlpDao {
 				"where " +
 				"	r.fiscal_year = :fiscalYear " +
 				" 	AND ra.activity_id  = :activityId  " 	+
-				"	AND ra.STATUS_CANCLE_ACTIVITY is null " +	
+				"	AND ra.STATUS_CANCLE_ACTIVITY is null and r.status_regis_form != 'ST13' " +	
 				"order by  ap.customer_code asc, r.register_number asc,  pln.id asc, ex.id asc ,a.id asc, ra.id asc";
 		
 		

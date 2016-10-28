@@ -313,7 +313,7 @@ public class CustomerExport extends AbstractPOIExcelView {
 				orgType = "หน่วยงานรัฐวิสาหกิจ";
 			} else if(orgType.equals("T3")) {
 				orgType = "หน่วยงานเอกชน";
-			} else if(orgType.equals("T3")) {
+			} else if(orgType.equals("T4")) {
 				orgType = "หน่วยงานในกำกับของรัฐ";
 			} else {
 				orgType = "ไม่ได้ระบุ";
