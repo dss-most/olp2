@@ -360,8 +360,6 @@ public class HomeController {
 				
 				Map<String, Object> test = list.get(0);
 				
-				logger.debug(test.get("ADD_RECEIPT").toString());
-				
 				model.put("fields", list);
 
 
