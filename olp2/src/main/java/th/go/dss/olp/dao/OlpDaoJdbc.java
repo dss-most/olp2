@@ -495,16 +495,16 @@ where a.activity_code like 'D01' and r.fiscal_year='2555'
 				"	, ra.exam_num "	+ 
 				"	, ra.amount ra_amount" +
 				"	, a.price " +
-				"	, c.company_th_applicant" +
-				"	, c.add_applicant " +
-				"	, decode(nvl(c.tambon_id_applicant,\'0\'), \'0\', \' \', " +
+				"	, c.company_th_receipt" +
+				"	, c.add_receipt " +
+				"	, decode(nvl(c.tambon_id_receipt,\'0\'), \'0\', \' \', " +
                 "  			decode(p.province_id, 21 , \'แขวง\'||t.tambon_name, " +
                 "  					\'ตำบล\'||t.tambon_name )) tambon " +
                 "	, decode(p.province_id, 21 , \'เขต\'||d.amphur_name, " +
 				"			\'อำเภอ\'||d.amphur_name ) amphur " +
 				"	, decode(p.province_id, 21 , p.province_name, "+
 				"			\'จังหวัด\'||p.province_name ) province " +
-				"	, c.postcode_applicant postcode " +
+				"	, c.postcode_receipt postcode " +
 				"from " +
 				"	olp_register r inner join olp_applicant ap on r.applicant_id = ap.id " +
 				"	inner join olp_register_activity ra on ra.register_id = r.id " +  
@@ -512,9 +512,9 @@ where a.activity_code like 'D01' and r.fiscal_year='2555'
 				" 	inner join olp_example ex on a.olp_example_id = ex.id " +
 				"	inner join olp_plan pln on ex.olp_plan_id = pln.id " +
 				"	inner join olp_company c on ap.olp_ref_company_id = c.id " +
-				"	inner join glb_province p on c.province_id_applicant = p.province_id " +
-				"	inner join glb_district d on c.district_id_applicant = d.amphur_id " +
-				"	left outer join glb_tambon t on c.tambon_id_applicant = t.tambon_id ";
+				"	inner join glb_province p on c.province_id_receipt = p.province_id " +
+				"	inner join glb_district d on c.district_id_receipt = d.amphur_id " +
+				"	left outer join glb_tambon t on c.tambon_id_receipt = t.tambon_id ";
 		
 		String where1 = "" +
 				"where " +
@@ -628,20 +628,20 @@ where a.activity_code like 'D01' and r.fiscal_year='2555'
 				"	, pln.branch_name " +
 				"	, a.activity_name " +
 				"	, a.price " +
-				"	, c.company_th_applicant " +
-				"	, c.company_en_applicant " +
-				"	, c.add_applicant " +
+				"	, c.company_th_receipt " +
+				"	, c.company_en_receipt " +
+				"	, c.add_receipt " +
 				"	, p.province_name " +
 				"	, nvl(d.amphur_name, \' \') amphur_name " +
 				"	, nvl(t.tambon_name, \' \') tambon_name " +
-				"	, decode(nvl(c.tambon_id_applicant,\'0\'), \'0\', \' \', " +
+				"	, decode(nvl(c.tambon_id_receipt,\'0\'), \'0\', \' \', " +
                 "  			decode(p.province_id, 21 , \'แขวง\'||t.tambon_name, " +
                 "  					\'ตำบล\'||t.tambon_name )) tambon " +
                 "	, decode(p.province_id, 21 , \'เขต\'||d.amphur_name, " +
 				"			\'อำเภอ\'||d.amphur_name ) amphur " +
 				"	, decode(p.province_id, 21 , p.province_name, "+
 				"			\'จังหวัด\'||p.province_name ) province " +
-				"	, c.postcode_applicant postcode " +
+				"	, c.postcode_receipt postcode " +
 				"	, ra.exam_num "	+ 
 				"	, ra.amount ra_amount" +
 				"	, upper(substr(a.activity_code,1,2)) code2Letter " +
@@ -652,9 +652,9 @@ where a.activity_code like 'D01' and r.fiscal_year='2555'
 				" 	inner join olp_example ex on a.olp_example_id = ex.id " +
 				"	inner join olp_plan pln on ex.olp_plan_id = pln.id " +
 				"	inner join olp_company c on ap.olp_ref_company_id = c.id " +
-				"	left outer join glb_province p on c.province_id_applicant = p.province_id " +
-				"	left outer join glb_district d on c.district_id_applicant = d.amphur_id " +
-				"	left outer join glb_tambon t on c.tambon_id_applicant = t.tambon_id " + 
+				"	left outer join glb_province p on c.province_id_receipt = p.province_id " +
+				"	left outer join glb_district d on c.district_id_receipt = d.amphur_id " +
+				"	left outer join glb_tambon t on c.tambon_id_receipt = t.tambon_id " + 
 				"where " +
 				"	r.fiscal_year = :fiscalYear " +
 				" 	AND ap.id = :customerCode  " +

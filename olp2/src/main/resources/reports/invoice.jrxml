@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
-<!-- 2016-10-28T16:36:16 -->
+<!-- 2016-10-31T09:35:55 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report3" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="10" bottomMargin="20" isFloatColumnFooter="true" uuid="021470aa-8347-4266-83b3-5fc17dc24f92">
 	<property name="ireport.zoom" value="1.2100000000000224"/>
 	<property name="ireport.x" value="0"/>
@@ -74,8 +74,8 @@ ORDER BY id ASC,
 	<field name="BRANCH_NAME" class="java.lang.String"/>
 	<field name="ACTIVITY_NAME" class="java.lang.String"/>
 	<field name="PRICE" class="java.math.BigDecimal"/>
-	<field name="COMPANY_TH_APPLICANT" class="java.lang.String"/>
-	<field name="ADD_APPLICANT" class="java.lang.String"/>
+	<field name="COMPANY_TH_RECEIPT" class="java.lang.String"/>
+	<field name="ADD_RECEIPT" class="java.lang.String"/>
 	<field name="PROVINCE_NAME" class="java.lang.String"/>
 	<field name="AMPHUR_NAME" class="java.lang.String"/>
 	<field name="TAMBON_NAME" class="java.lang.String"/>
@@ -83,7 +83,7 @@ ORDER BY id ASC,
 	<field name="AMPHUR" class="java.lang.String"/>
 	<field name="PROVINCE" class="java.lang.String"/>
 	<field name="POSTCODE" class="java.lang.String"/>
-	<field name="COMPANY_EN_APPLICANT" class="java.lang.String"/>
+	<field name="COMPANY_EN_RECEIPT" class="java.lang.String"/>
 	<field name="RA_AMOUNT" class="java.math.BigDecimal"/>
 	<field name="EXAM_NUM" class="java.math.BigDecimal"/>
 	<field name="ROUND" class="java.math.BigDecimal"/>
@@ -190,7 +190,7 @@ ORDER BY id ASC,
 					<textElement>
 						<font fontName="TH SarabunPSK" size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA[( $P{isEnglishAddress} == true ? $F{COMPANY_EN_APPLICANT} : $F{COMPANY_TH_APPLICANT} )]]></textFieldExpression>
+					<textFieldExpression><![CDATA[( $P{isEnglishAddress} == true ? $F{COMPANY_EN_RECEIPT} : $F{COMPANY_TH_RECEIPT} )]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement x="78" y="78" width="456" height="28" uuid="d02f4909-6725-4348-ad93-264631a02e75">
@@ -201,7 +201,7 @@ ORDER BY id ASC,
 						<font fontName="TH SarabunPSK" size="12"/>
 						<paragraph lineSpacing="Proportional" lineSpacingSize="0.5"/>
 					</textElement>
-					<textFieldExpression><![CDATA[( $P{isEnglishAddress} ? $F{ADD_APPLICANT} : $F{ADD_APPLICANT} + " " + $F{TAMBON} + " " + $F{AMPHUR} + " " + $F{PROVINCE} + " " +$F{POSTCODE} )]]></textFieldExpression>
+					<textFieldExpression><![CDATA[( $P{isEnglishAddress} ? $F{ADD_RECEIPT} : $F{ADD_RECEIPT} + " " + $F{TAMBON} + " " + $F{AMPHUR} + " " + $F{PROVINCE} + " " +$F{POSTCODE} )]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="417" y="115" width="74" height="15" uuid="0cdb6032-5c10-441d-8389-0803823d1a2c"/>
@@ -660,7 +660,7 @@ ORDER BY id ASC,
 					<textElement>
 						<font fontName="TH SarabunPSK"/>
 					</textElement>
-					<textFieldExpression><![CDATA[( $P{isEnglishAddress} == true ? $F{COMPANY_EN_APPLICANT} : $F{COMPANY_TH_APPLICANT} )]]></textFieldExpression>
+					<textFieldExpression><![CDATA[( $P{isEnglishAddress} == true ? $F{COMPANY_EN_RECEIPT} : $F{COMPANY_TH_RECEIPT} )]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement positionType="FixRelativeToBottom" x="381" y="231" width="164" height="20" uuid="d6d68c52-64e7-4dc1-a1da-331b75c512f3"/>
