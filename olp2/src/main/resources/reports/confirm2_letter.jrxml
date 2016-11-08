@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
-<!-- 2016-10-31T09:44:28 -->
+<!-- 2016-11-08T08:31:51 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report3" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="10" bottomMargin="20" isFloatColumnFooter="true" uuid="94a45099-6de6-4314-a5c4-a2c355fb668d">
 	<property name="ireport.zoom" value="1.2100000000000224"/>
 	<property name="ireport.x" value="0"/>
@@ -46,50 +46,50 @@
 	<group name="RegisterNumber">
 		<groupExpression><![CDATA[$F{REGISTER_NUMBER}]]></groupExpression>
 		<groupHeader>
-			<band height="385">
+			<band height="367">
 				<rectangle>
-					<reportElement x="0" y="123" width="555" height="96" uuid="80adad9c-f639-4038-967f-9d479f4b4347"/>
+					<reportElement x="0" y="106" width="555" height="96" uuid="80adad9c-f639-4038-967f-9d479f4b4347"/>
 					<graphicElement>
 						<pen lineWidth="0.5"/>
 					</graphicElement>
 				</rectangle>
 				<staticText>
-					<reportElement x="15" y="62" width="78" height="20" uuid="a7e83175-5fdf-4105-83a4-6e95406b989c"/>
+					<reportElement x="62" y="58" width="78" height="20" uuid="a7e83175-5fdf-4105-83a4-6e95406b989c"/>
 					<textElement>
-						<font fontName="TH SarabunPSK" size="12"/>
+						<font fontName="TH SarabunPSK" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[รหัสประจำตัวลูกค้า]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="11" y="130" width="39" height="20" uuid="5cfd3b9d-d53d-4dc7-9c76-0d62cf148c09"/>
+					<reportElement x="11" y="113" width="39" height="20" uuid="5cfd3b9d-d53d-4dc7-9c76-0d62cf148c09"/>
 					<textElement>
 						<font fontName="TH SarabunPSK" size="12"/>
 					</textElement>
 					<text><![CDATA[ที่อยู่: ]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="344" y="62" width="100" height="20" uuid="df2203bb-65b6-465f-a18b-d9abcc626231"/>
+					<reportElement x="344" y="58" width="86" height="20" uuid="df2203bb-65b6-465f-a18b-d9abcc626231"/>
 					<textElement>
-						<font fontName="TH SarabunPSK" size="14"/>
+						<font fontName="TH SarabunPSK" size="14" isBold="true"/>
 					</textElement>
 					<text><![CDATA[หมายเลขลงทะเบียน]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="82" y="62" width="100" height="20" uuid="7f2b0e0e-e425-4e0b-ad13-cb64486bfec0"/>
+					<reportElement x="129" y="58" width="100" height="20" uuid="7f2b0e0e-e425-4e0b-ad13-cb64486bfec0"/>
 					<textElement>
 						<font fontName="TH SarabunPSK" size="12"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{CUSTOMER_CODE}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="50" y="130" width="456" height="20" uuid="02a1f795-b3d7-47db-b36b-886417aca93d"/>
+					<reportElement x="50" y="113" width="456" height="20" uuid="02a1f795-b3d7-47db-b36b-886417aca93d"/>
 					<textElement>
 						<font fontName="TH SarabunPSK" size="12"/>
 					</textElement>
 					<textFieldExpression><![CDATA[( $P{isEnglishAddress} == true ? $F{COMPANY_EN_RECEIPT} : $F{COMPANY_TH_RECEIPT} )]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement x="50" y="150" width="467" height="39" uuid="d02f4909-6725-4348-ad93-264631a02e75"/>
+					<reportElement x="50" y="133" width="467" height="39" uuid="d02f4909-6725-4348-ad93-264631a02e75"/>
 					<textElement>
 						<font fontName="TH SarabunPSK" size="12"/>
 						<paragraph lineSpacing="Proportional" lineSpacingSize="2.0"/>
@@ -104,7 +104,7 @@
 					<textFieldExpression><![CDATA[$F{IS_QC_ACTIVITY} ? "แบบยืนยันการออกใบรายงานตัวอย่างควบคุม QC Sample ปีงบประมาณ " + $P{fiscalYear} + "<br/>ศูนย์บริหารจัดการทดสอบความชำนาญห้องปฏิบัติการ<br/> กรมวิทยาศาสตร์บริการ (http://www.dss.go.th)" : "แบบยืนยันกิจกรรมทดสอบความชำนาญปีงบประมาณ " + $P{fiscalYear} + "<br/>ศูนย์บริหารจัดการทดสอบความชำนาญห้องปฏิบัติการ<br/> กรมวิทยาศาสตร์บริการ (http://www.dss.go.th)"]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="444" y="62" width="100" height="20" uuid="9ab6c11f-13b3-49b7-b65e-492c1ccfb7bc"/>
+					<reportElement x="426" y="58" width="100" height="20" uuid="9ab6c11f-13b3-49b7-b65e-492c1ccfb7bc"/>
 					<textElement>
 						<font fontName="TH SarabunPSK" size="14"/>
 					</textElement>
@@ -120,7 +120,7 @@
 					</jr:Code128>
 				</componentElement>
 				<staticText>
-					<reportElement mode="Opaque" x="0" y="326" width="555" height="30" backcolor="#C0C0C0" uuid="47070601-a414-4f22-9372-0a9b9c6cc237"/>
+					<reportElement mode="Opaque" x="0" y="309" width="555" height="30" backcolor="#C0C0C0" uuid="47070601-a414-4f22-9372-0a9b9c6cc237"/>
 					<box padding="5">
 						<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 					</box>
@@ -130,7 +130,7 @@
 					<text><![CDATA[3. การยืนยันสถานภาพของการเข้าร่วมกิจกรรมทดสอบความชำนาญ]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="0" y="356" width="555" height="28" uuid="d258dcb8-1837-421f-8c45-b22c882763b9"/>
+					<reportElement x="0" y="339" width="555" height="28" uuid="d258dcb8-1837-421f-8c45-b22c882763b9"/>
 					<box padding="4" leftPadding="15">
 						<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 						<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
@@ -143,7 +143,7 @@
 					<text><![CDATA[(กรุณาใส่เครื่องหมาย       กรณีเข้าร่วมกิจกรรม และ      กรณียกเลิกกิจกรรม ในช่อง     )]]></text>
 				</staticText>
 				<staticText>
-					<reportElement mode="Opaque" x="0" y="219" width="555" height="30" backcolor="#C0C0C0" uuid="47070601-a414-4f22-9372-0a9b9c6cc237"/>
+					<reportElement mode="Opaque" x="0" y="202" width="555" height="30" backcolor="#C0C0C0" uuid="47070601-a414-4f22-9372-0a9b9c6cc237"/>
 					<box padding="5">
 						<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 					</box>
@@ -153,7 +153,7 @@
 					<text><![CDATA[2. ชื่อ - ที่อยู่สำหรับจ่าหน้าซองเพื่อส่งใบเสร็จรับเงิน (กรณีที่อยู่เหมือนกับข้อ 1 กรุณาใส่เครื่องหมาย     ในช่อง    )]]></text>
 				</staticText>
 				<staticText>
-					<reportElement mode="Opaque" x="0" y="93" width="555" height="30" backcolor="#C0C0C0" uuid="47070601-a414-4f22-9372-0a9b9c6cc237"/>
+					<reportElement mode="Opaque" x="0" y="76" width="555" height="30" backcolor="#C0C0C0" uuid="47070601-a414-4f22-9372-0a9b9c6cc237"/>
 					<box padding="5">
 						<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 					</box>
@@ -163,161 +163,161 @@
 					<text><![CDATA[1. ชื่อที่อยู่ -  หน่วยงานเพื่อใช้ในการออกใบเสร็จรับเงิน (กรุณาตรวจสอบและแก้ไขให้ถูกต้อง)]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="11" y="189" width="39" height="20" uuid="5cfd3b9d-d53d-4dc7-9c76-0d62cf148c09"/>
+					<reportElement x="11" y="172" width="39" height="20" uuid="5cfd3b9d-d53d-4dc7-9c76-0d62cf148c09"/>
 					<textElement>
 						<font fontName="TH SarabunPSK" size="12"/>
 					</textElement>
 					<text><![CDATA[โทรศัพท์: ]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="50" y="189" width="110" height="20" uuid="d02f4909-6725-4348-ad93-264631a02e75"/>
+					<reportElement x="50" y="172" width="110" height="20" uuid="d02f4909-6725-4348-ad93-264631a02e75"/>
 					<textElement>
 						<font fontName="TH SarabunPSK" size="12"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{TEL_NO}]]></textFieldExpression>
 				</textField>
 				<rectangle>
-					<reportElement x="0" y="249" width="555" height="77" uuid="80adad9c-f639-4038-967f-9d479f4b4347"/>
+					<reportElement x="0" y="232" width="555" height="77" uuid="80adad9c-f639-4038-967f-9d479f4b4347"/>
 					<graphicElement>
 						<pen lineWidth="0.5"/>
 					</graphicElement>
 				</rectangle>
 				<rectangle>
-					<reportElement x="372" y="365" width="10" height="10" uuid="3651894b-2e59-42f8-9cec-e474580eaf84"/>
+					<reportElement x="372" y="348" width="10" height="10" uuid="3651894b-2e59-42f8-9cec-e474580eaf84"/>
 				</rectangle>
 				<image>
-					<reportElement x="105" y="362" width="22" height="17" uuid="5711e0e9-68a3-4adc-8714-123bdc39d94e"/>
+					<reportElement x="105" y="345" width="22" height="17" uuid="5711e0e9-68a3-4adc-8714-123bdc39d94e"/>
 					<imageExpression><![CDATA["right-mark.png"]]></imageExpression>
 				</image>
 				<staticText>
-					<reportElement x="11" y="259" width="39" height="20" uuid="5cfd3b9d-d53d-4dc7-9c76-0d62cf148c09"/>
+					<reportElement x="11" y="242" width="39" height="20" uuid="5cfd3b9d-d53d-4dc7-9c76-0d62cf148c09"/>
 					<textElement>
 						<font fontName="TH SarabunPSK" size="12"/>
 					</textElement>
 					<text><![CDATA[ชื่อ-สกุล]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="160" y="189" width="39" height="20" uuid="5cfd3b9d-d53d-4dc7-9c76-0d62cf148c09"/>
+					<reportElement x="160" y="172" width="39" height="20" uuid="5cfd3b9d-d53d-4dc7-9c76-0d62cf148c09"/>
 					<textElement>
 						<font fontName="TH SarabunPSK" size="12"/>
 					</textElement>
 					<text><![CDATA[โทรสาร:]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="200" y="189" width="110" height="20" uuid="d02f4909-6725-4348-ad93-264631a02e75"/>
+					<reportElement x="200" y="172" width="110" height="20" uuid="d02f4909-6725-4348-ad93-264631a02e75"/>
 					<textElement>
 						<font fontName="TH SarabunPSK" size="12"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{FAX_NO}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement x="310" y="189" width="39" height="20" uuid="5cfd3b9d-d53d-4dc7-9c76-0d62cf148c09"/>
+					<reportElement x="310" y="172" width="39" height="20" uuid="5cfd3b9d-d53d-4dc7-9c76-0d62cf148c09"/>
 					<textElement>
 						<font fontName="TH SarabunPSK" size="12"/>
 					</textElement>
 					<text><![CDATA[Email:]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="345" y="189" width="205" height="20" uuid="d02f4909-6725-4348-ad93-264631a02e75"/>
+					<reportElement x="345" y="172" width="205" height="20" uuid="d02f4909-6725-4348-ad93-264631a02e75"/>
 					<textElement>
 						<font fontName="TH SarabunPSK" size="12"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{EMAIL}]]></textFieldExpression>
 				</textField>
 				<line>
-					<reportElement x="41" y="201" width="118" height="1" uuid="a0dc2ffe-d684-4310-97f2-eaf7f6f152f6"/>
+					<reportElement x="41" y="184" width="118" height="1" uuid="a0dc2ffe-d684-4310-97f2-eaf7f6f152f6"/>
 					<graphicElement>
 						<pen lineWidth="0.5" lineStyle="Dashed"/>
 					</graphicElement>
 				</line>
 				<line>
-					<reportElement x="187" y="201" width="120" height="1" uuid="a0dc2ffe-d684-4310-97f2-eaf7f6f152f6"/>
+					<reportElement x="187" y="184" width="120" height="1" uuid="a0dc2ffe-d684-4310-97f2-eaf7f6f152f6"/>
 					<graphicElement>
 						<pen lineWidth="0.5" lineStyle="Dashed"/>
 					</graphicElement>
 				</line>
 				<line>
-					<reportElement x="332" y="201" width="185" height="1" uuid="a0dc2ffe-d684-4310-97f2-eaf7f6f152f6"/>
+					<reportElement x="332" y="184" width="185" height="1" uuid="a0dc2ffe-d684-4310-97f2-eaf7f6f152f6"/>
 					<graphicElement>
 						<pen lineWidth="0.5" lineStyle="Dashed"/>
 					</graphicElement>
 				</line>
 				<line>
-					<reportElement x="41" y="162" width="470" height="1" uuid="a0dc2ffe-d684-4310-97f2-eaf7f6f152f6"/>
+					<reportElement x="41" y="145" width="470" height="1" uuid="a0dc2ffe-d684-4310-97f2-eaf7f6f152f6"/>
 					<graphicElement>
 						<pen lineWidth="0.5" lineStyle="Dashed"/>
 					</graphicElement>
 				</line>
 				<line>
-					<reportElement x="41" y="142" width="470" height="1" uuid="a0dc2ffe-d684-4310-97f2-eaf7f6f152f6"/>
+					<reportElement x="41" y="125" width="470" height="1" uuid="a0dc2ffe-d684-4310-97f2-eaf7f6f152f6"/>
 					<graphicElement>
 						<pen lineWidth="0.5" lineStyle="Dashed"/>
 					</graphicElement>
 				</line>
 				<line>
-					<reportElement x="41" y="271" width="470" height="1" uuid="a0dc2ffe-d684-4310-97f2-eaf7f6f152f6"/>
+					<reportElement x="41" y="254" width="470" height="1" uuid="a0dc2ffe-d684-4310-97f2-eaf7f6f152f6"/>
 					<graphicElement>
 						<pen lineWidth="0.5" lineStyle="Dashed"/>
 					</graphicElement>
 				</line>
 				<line>
-					<reportElement x="41" y="296" width="470" height="1" uuid="a0dc2ffe-d684-4310-97f2-eaf7f6f152f6"/>
+					<reportElement x="41" y="279" width="470" height="1" uuid="a0dc2ffe-d684-4310-97f2-eaf7f6f152f6"/>
 					<graphicElement>
 						<pen lineWidth="0.5" lineStyle="Dashed"/>
 					</graphicElement>
 				</line>
 				<staticText>
-					<reportElement x="160" y="304" width="39" height="20" uuid="5cfd3b9d-d53d-4dc7-9c76-0d62cf148c09"/>
+					<reportElement x="160" y="287" width="39" height="20" uuid="5cfd3b9d-d53d-4dc7-9c76-0d62cf148c09"/>
 					<textElement>
 						<font fontName="TH SarabunPSK" size="12"/>
 					</textElement>
 					<text><![CDATA[โทรสาร:]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="11" y="304" width="39" height="20" uuid="5cfd3b9d-d53d-4dc7-9c76-0d62cf148c09"/>
+					<reportElement x="11" y="287" width="39" height="20" uuid="5cfd3b9d-d53d-4dc7-9c76-0d62cf148c09"/>
 					<textElement>
 						<font fontName="TH SarabunPSK" size="12"/>
 					</textElement>
 					<text><![CDATA[โทรศัพท์: ]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="310" y="304" width="39" height="20" uuid="5cfd3b9d-d53d-4dc7-9c76-0d62cf148c09"/>
+					<reportElement x="310" y="287" width="39" height="20" uuid="5cfd3b9d-d53d-4dc7-9c76-0d62cf148c09"/>
 					<textElement>
 						<font fontName="TH SarabunPSK" size="12"/>
 					</textElement>
 					<text><![CDATA[Email:]]></text>
 				</staticText>
 				<line>
-					<reportElement x="41" y="316" width="118" height="1" uuid="a0dc2ffe-d684-4310-97f2-eaf7f6f152f6"/>
+					<reportElement x="41" y="299" width="118" height="1" uuid="a0dc2ffe-d684-4310-97f2-eaf7f6f152f6"/>
 					<graphicElement>
 						<pen lineWidth="0.5" lineStyle="Dashed"/>
 					</graphicElement>
 				</line>
 				<line>
-					<reportElement x="187" y="316" width="120" height="1" uuid="a0dc2ffe-d684-4310-97f2-eaf7f6f152f6"/>
+					<reportElement x="187" y="299" width="120" height="1" uuid="a0dc2ffe-d684-4310-97f2-eaf7f6f152f6"/>
 					<graphicElement>
 						<pen lineWidth="0.5" lineStyle="Dashed"/>
 					</graphicElement>
 				</line>
 				<line>
-					<reportElement x="332" y="316" width="179" height="1" uuid="a0dc2ffe-d684-4310-97f2-eaf7f6f152f6"/>
+					<reportElement x="332" y="299" width="179" height="1" uuid="a0dc2ffe-d684-4310-97f2-eaf7f6f152f6"/>
 					<graphicElement>
 						<pen lineWidth="0.5" lineStyle="Dashed"/>
 					</graphicElement>
 				</line>
 				<rectangle>
-					<reportElement x="486" y="229" width="10" height="10" uuid="3651894b-2e59-42f8-9cec-e474580eaf84"/>
+					<reportElement x="486" y="212" width="10" height="10" uuid="3651894b-2e59-42f8-9cec-e474580eaf84"/>
 				</rectangle>
 				<image>
-					<reportElement x="437" y="226" width="22" height="17" uuid="5711e0e9-68a3-4adc-8714-123bdc39d94e"/>
+					<reportElement x="437" y="209" width="22" height="17" uuid="5711e0e9-68a3-4adc-8714-123bdc39d94e"/>
 					<imageExpression><![CDATA["right-mark.png"]]></imageExpression>
 				</image>
 				<image>
-					<reportElement x="239" y="362" width="22" height="17" uuid="5711e0e9-68a3-4adc-8714-123bdc39d94e"/>
+					<reportElement x="239" y="345" width="22" height="17" uuid="5711e0e9-68a3-4adc-8714-123bdc39d94e"/>
 					<imageExpression><![CDATA["x-mark.png"]]></imageExpression>
 				</image>
 				<staticText>
-					<reportElement x="11" y="284" width="39" height="20" uuid="5cfd3b9d-d53d-4dc7-9c76-0d62cf148c09"/>
+					<reportElement x="11" y="267" width="39" height="20" uuid="5cfd3b9d-d53d-4dc7-9c76-0d62cf148c09"/>
 					<textElement>
 						<font fontName="TH SarabunPSK" size="12"/>
 					</textElement>
@@ -350,7 +350,7 @@
 					<imageExpression><![CDATA["dss_logo_big.png"]]></imageExpression>
 				</image>
 				<line>
-					<reportElement x="43" y="181" width="470" height="1" uuid="777117c5-626e-4012-a831-99fa94065043">
+					<reportElement x="43" y="164" width="470" height="1" uuid="777117c5-626e-4012-a831-99fa94065043">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					</reportElement>
 					<graphicElement>
