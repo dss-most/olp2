@@ -188,6 +188,7 @@ public class OlpDaoJdbc implements OlpDao {
 				"	, r.end_payment_date " +
 				"	, r.status_regis_form " +
 				"	, ap.customer_code " +
+				"	, prefix_app.PFIX_NAME " +
 				"	, ap.customer_name_candidate " +
 				"	, ap.SEND_MISSIVE_NAME " +
 				"	, ap.position_candidate " +
@@ -272,21 +273,23 @@ public class OlpDaoJdbc implements OlpDao {
 				"	olp_register r inner join olp_applicant ap on r.applicant_id = ap.id " +
 				"	inner join olp_company c on ap.olp_ref_company_id = c.id " +
 				
-				"	inner join glb_province p on c.province_id_applicant = p.province_id " +
-				"	inner join glb_district d on c.district_id_applicant = d.amphur_id " +
+				" left outer join hr_prefix prefix_app on ap.PFIX_ID_CANDIDATE = prefix_app.PFIX_ID " +
+				
+				"	left outer join glb_province p on c.province_id_applicant = p.province_id " +
+				"	left outer join glb_district d on c.district_id_applicant = d.amphur_id " +
 				"	left outer join glb_tambon t on c.tambon_id_applicant = t.tambon_id " +
 				
 				
-				"	inner join glb_province p_receipt on c.province_id_receipt = p_receipt.province_id " +
-				"	inner join glb_district d_receipt on c.district_id_receipt = d_receipt.amphur_id " +
+				"	left outer join glb_province p_receipt on c.province_id_receipt = p_receipt.province_id " +
+				"	left outer join glb_district d_receipt on c.district_id_receipt = d_receipt.amphur_id " +
 				"	left outer join glb_tambon t_receipt on c.tambon_id_receipt = t_receipt.tambon_id " +
 				
-				"	inner join glb_province p_receipt2 on c.province_id_receipt2 = p_receipt2.province_id " +
-				"	inner join glb_district d_receipt2 on c.district_id_receipt2 = d_receipt2.amphur_id " +
+				"	left outer join glb_province p_receipt2 on c.province_id_receipt2 = p_receipt2.province_id " +
+				"	left outer join glb_district d_receipt2 on c.district_id_receipt2 = d_receipt2.amphur_id " +
 				"	left outer join glb_tambon t_receipt2 on c.tambon_id_receipt2 = t_receipt2.tambon_id " +
 				
-				"	inner join glb_province p_cer on c.province_id_certificate = p_cer.province_id " +
-				"	inner join glb_district d_cer on c.district_id_certificate = d_cer.amphur_id " +
+				"	left outer join glb_province p_cer on c.province_id_certificate = p_cer.province_id " +
+				"	left outer join glb_district d_cer on c.district_id_certificate = d_cer.amphur_id " +
 				"	left outer join glb_tambon t_cer on c.tambon_id_certificate = t_cer.tambon_id " +
 
 
@@ -331,6 +334,7 @@ public class OlpDaoJdbc implements OlpDao {
 				"	, a.activity_name " +
 				"	, a.activity_code " +
 				"	, ap.customer_code " +
+				"	, prefix_app.PFIX_NAME " +
 				"	, ap.customer_name_candidate " +
 				"	, ap.position_candidate " +
 				"	, ap.tel_no " +
@@ -422,21 +426,23 @@ public class OlpDaoJdbc implements OlpDao {
 				"	inner join olp_plan pln on ex.olp_plan_id = pln.id " +
 				"	inner join olp_company c on ap.olp_ref_company_id = c.id " +
 				
-				"	inner join glb_province p on c.province_id_applicant = p.province_id " +
-				"	inner join glb_district d on c.district_id_applicant = d.amphur_id " +
+				" left outer join hr_prefix prefix_app on ap.PFIX_ID_CANDIDATE = prefix_app.PFIX_ID " +
+				
+				"	left outer join glb_province p on c.province_id_applicant = p.province_id " +
+				"	left outer join glb_district d on c.district_id_applicant = d.amphur_id " +
 				"	left outer join glb_tambon t on c.tambon_id_applicant = t.tambon_id " +
 				
 				
-				"	inner join glb_province p_receipt on c.province_id_receipt = p_receipt.province_id " +
-				"	inner join glb_district d_receipt on c.district_id_receipt = d_receipt.amphur_id " +
+				"	left outer join glb_province p_receipt on c.province_id_receipt = p_receipt.province_id " +
+				"	left outer join glb_district d_receipt on c.district_id_receipt = d_receipt.amphur_id " +
 				"	left outer join glb_tambon t_receipt on c.tambon_id_receipt = t_receipt.tambon_id " +
 				
-				"	inner join glb_province p_receipt2 on c.province_id_receipt2 = p_receipt2.province_id " +
-				"	inner join glb_district d_receipt2 on c.district_id_receipt2 = d_receipt2.amphur_id " +
+				"	left outer join glb_province p_receipt2 on c.province_id_receipt2 = p_receipt2.province_id " +
+				"	left outer join glb_district d_receipt2 on c.district_id_receipt2 = d_receipt2.amphur_id " +
 				"	left outer join glb_tambon t_receipt2 on c.tambon_id_receipt2 = t_receipt2.tambon_id " +
 				
-				"	inner join glb_province p_cer on c.province_id_certificate = p_cer.province_id " +
-				"	inner join glb_district d_cer on c.district_id_certificate = d_cer.amphur_id " +
+				"	left outer join glb_province p_cer on c.province_id_certificate = p_cer.province_id " +
+				"	left outer join glb_district d_cer on c.district_id_certificate = d_cer.amphur_id " +
 				"	left outer join glb_tambon t_cer on c.tambon_id_certificate = t_cer.tambon_id " +
 
 

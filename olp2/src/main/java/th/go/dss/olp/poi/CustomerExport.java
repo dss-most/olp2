@@ -265,7 +265,12 @@ public class CustomerExport extends AbstractPOIExcelView {
 			
 			cell = row.createCell(col++);
 			cell.setCellStyle(style);
-			cell.setCellValue(rowData.get("CUSTOMER_NAME_CANDIDATE")!=null?rowData.get("CUSTOMER_NAME_CANDIDATE").toString():"");
+			String name ="";
+			if(rowData.get("PFIX_NAME") != null) {
+				name = rowData.get("PFIX_NAME").toString();
+			}
+			name += rowData.get("CUSTOMER_NAME_CANDIDATE")!=null?rowData.get("CUSTOMER_NAME_CANDIDATE").toString():"";
+			cell.setCellValue(name);
 			
 			cell = row.createCell(col++);
 			cell.setCellStyle(style);
