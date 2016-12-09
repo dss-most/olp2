@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
-<!-- 2016-11-08T08:31:51 -->
+<!-- 2016-12-09T12:28:41 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report3" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="10" bottomMargin="20" isFloatColumnFooter="true" uuid="94a45099-6de6-4314-a5c4-a2c355fb668d">
 	<property name="ireport.zoom" value="1.2100000000000224"/>
 	<property name="ireport.x" value="0"/>
@@ -101,7 +101,7 @@
 					<textElement textAlignment="Center" markup="styled">
 						<font fontName="TH SarabunPSK" size="16" isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{IS_QC_ACTIVITY} ? "แบบยืนยันการออกใบรายงานตัวอย่างควบคุม QC Sample ปีงบประมาณ " + $P{fiscalYear} + "<br/>ศูนย์บริหารจัดการทดสอบความชำนาญห้องปฏิบัติการ<br/> กรมวิทยาศาสตร์บริการ (http://www.dss.go.th)" : "แบบยืนยันกิจกรรมทดสอบความชำนาญปีงบประมาณ " + $P{fiscalYear} + "<br/>ศูนย์บริหารจัดการทดสอบความชำนาญห้องปฏิบัติการ<br/> กรมวิทยาศาสตร์บริการ (http://www.dss.go.th)"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["แบบยืนยันกิจกรรมทดสอบความชำนาญปีงบประมาณ " + $P{fiscalYear} + "<br/>ศูนย์บริหารจัดการทดสอบความชำนาญห้องปฏิบัติการ กรมวิทยาศาสตร์บริการ"]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="426" y="58" width="100" height="20" uuid="9ab6c11f-13b3-49b7-b65e-492c1ccfb7bc"/>
