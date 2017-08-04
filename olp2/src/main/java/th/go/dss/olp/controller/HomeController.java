@@ -26,6 +26,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import th.go.dss.olp.dao.OlpDao;
 import th.go.dss.olp.poi.AbstractPOIExcelView;
 import th.go.dss.olp.poi.CustomerExport;
+import th.go.dss.olp.poi.CustomerOnlyExport;
 import th.go.dss.olp.poi.EMSExport;
 import th.go.dss.olp.poi.PlanActivityExcelExport;
 import th.go.dss.olp.reports.ThJasperReportsPdfView;
@@ -54,6 +55,29 @@ public class HomeController {
 		
 		return "reports/"+reportName;
 	}
+	
+	@RequestMapping(value="/reports/exportCustomerByFiscalYear")
+	public ModelAndView exportCustomerByFiscalYear(
+			@RequestParam(required=true) String fiscalYear){
+		
+		List<Map<String, Object>> list = null;
+		final Map<String, Object> model = new HashMap<>();
+		
+	
+		
+			list = olpDao.findCustomerByFiscalYear(fiscalYear);
+	
+		
+		model.put("customerList", list);
+		model.put("fiscalYear", fiscalYear);
+		
+		AbstractPOIExcelView view = new CustomerOnlyExport();
+		ModelAndView returnView = new ModelAndView(view,model);
+		
+		return returnView;
+		
+	}
+	
 	
 	@RequestMapping(value="/reports/exportCustomerRegistration")
 	public ModelAndView exportCustomerRegistration(

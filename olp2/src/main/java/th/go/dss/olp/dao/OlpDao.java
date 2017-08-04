@@ -31,4 +31,6 @@ public interface OlpDao {
 	
 	public List<Map<String, Object>> findRegistrationsByFiscalYear(String fiscalYear);
 	
+	public List<Map<String, Object>> findCustomerByFiscalYear(String fiscalYear);
+	
 }

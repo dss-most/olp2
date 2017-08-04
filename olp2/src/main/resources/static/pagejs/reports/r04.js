@@ -233,7 +233,9 @@ Ext.onReady(function(){
 				click : function() {
 					var form = this.up('form');
 					
+					
 					form.getEl().dom.target = '_blank';
+					
 					var activityId = Ext.getCmp('combo_activityCombo').value;
 					var fiscalYear = Ext.getCmp('text_fiscalYear').value;
 					
@@ -248,7 +250,7 @@ Ext.onReady(function(){
 				}
 			}
 		},{
-			text : 'Export ทั้งปี' ,
+			text : 'Export ทั้งปี ตามใบสมัครกิจกรรม' ,
 			id : 'btn_exprot_all',
 			listeners : {
 				click : function() {
@@ -263,6 +265,27 @@ Ext.onReady(function(){
 						target: '_blank',
 						params: {
 							activityId : null,
+							fiscalYear: fiscalYear
+						}
+					});
+				}
+			}
+		},{
+			text : 'Export ทั้งปี เฉพาะชื่อลูกค้า' ,
+			id : 'btn_exprot_all_customer',
+			listeners : {
+				click : function() {
+					
+					var form = this.up('form');
+					
+					form.getEl().dom.target = '_blank';
+					
+					var fiscalYear = Ext.getCmp('text_fiscalYear').value;
+					
+					form.submit({
+						target: '_blank',
+						url: 'exportCustomerByFiscalYear',
+						params: {
 							fiscalYear: fiscalYear
 						}
 					});

@@ -181,6 +181,144 @@ public class OlpDaoJdbc implements OlpDao {
 	}
 
 	@Override
+	public List<Map<String, Object>> findCustomerByFiscalYear(String fiscalYear) {
+		// TODO Auto-generated method stub
+		String sql1 = "" +
+				"select ap.customer_code " +
+				"	, prefix_app.PFIX_NAME " +
+				"	, ap.customer_name_candidate " +
+				"	, ap.SEND_MISSIVE_NAME " +
+				"	, ap.position_candidate " +
+				"	, ap.tel_no " +
+				"	, ap.fax_no " +
+				"	, ap.phon_no " +
+				"	, ap.email " +
+				"	, olp_get_act_from_applicant_id(ap.id, " +fiscalYear +") activities " +
+				
+				
+				" 	, c.company_th_applicant " +
+				" 	, c.company_en_applicant " +
+				" 	, c.add_applicant " +
+				" 	, c.add_applicant_1 " +
+				" 	, c.add_en_applicant " +
+				" 	, c.add_en_applicant_1 " +
+				
+				"	, decode(nvl(c.tambon_id_applicant,\'0\'), \'0\', \' \', " +
+				"  			decode(p.province_id, 21 , \'แขวง\'||t.tambon_name, " +
+				"  					\'ต.\'||t.tambon_name )) tambon_name " +
+				"	, decode(p.province_id, 21 , \'เขต\'||d.amphur_name, " +
+				"			\'อ.\'||d.amphur_name ) amphur_name " +
+				"	, decode(p.province_id, 21 , p.province_name, "+
+				"			\'จ.\'||p.province_name ) province_name " +
+				
+				"	, c.postcode_applicant " +
+				
+				" 	, c.company_th_receipt " +
+				" 	, c.company_en_receipt " +
+				" 	, c.add_receipt " +
+				" 	, c.add_receipt_1 " +
+				" 	, c.add_en_receipt " +
+				" 	, c.add_en_receipt_1 " +
+				"	, c.org_Type " +
+				
+				"	, decode(nvl(c.tambon_id_receipt,\'0\'), \'0\', \' \', " +
+				"  			decode(p_receipt.province_id, 21 , \'แขวง\'||t_receipt.tambon_name, " +
+				"  					\'ต.\'||t_receipt.tambon_name )) tambon_name_1 " +
+				"	, decode(p_receipt.province_id, 21 , \'เขต\'||d_receipt.amphur_name, " +
+				"			\'อ.\'||d_receipt.amphur_name ) amphur_name_1 " +
+				"	, decode(p_receipt.province_id, 21 , p_receipt.province_name, "+
+				"			\'จ.\'||p_receipt.province_name ) province_name_1 " +
+
+				"	, c.postcode_receipt " +
+				
+				
+				" 	, c.company_th_receipt2 " +
+				" 	, c.company_en_receipt2 " +
+				" 	, c.add_receipt2 " +
+				" 	, c.add_receipt2_1 " +
+				" 	, c.add_en_receipt2 " +
+				" 	, c.add_en_receipt2_1 " +
+
+				
+				"	, decode(nvl(c.tambon_id_receipt2,\'0\'), \'0\', \' \', " +
+				"  			decode(p_receipt2.province_id, 21 , \'แขวง\'||t_receipt2.tambon_name, " +
+				"  					\'ต.\'||t_receipt2.tambon_name )) tambon_name_2 " +
+				"	, decode(p_receipt2.province_id, 21 , \'เขต\'||d_receipt2.amphur_name, " +
+				"			\'อ.\'||d_receipt2.amphur_name ) amphur_name_2 " +
+				"	, decode(p_receipt2.province_id, 21 , p_receipt2.province_name, "+
+				"			\'จ.\'||p_receipt2.province_name ) province_name_2 " +
+				"	, c.postcode_receipt2 " +
+				
+				" 	, c.company_th_certificate " +
+				" 	, c.company_en_certificate " +
+				" 	, c.add_certificate " +
+				" 	, c.add_certificate_1 " +
+				" 	, c.add_en_certificate " +
+				" 	, c.add_en_certificate_1 " +
+				"	, decode(nvl(c.tambon_id_certificate,\'0\'), \'0\', \' \', " +
+				"  			decode(p_cer.province_id, 21 , \'แขวง\'||t_cer.tambon_name, " +
+				"  					\'ต.\'||t_receipt2.tambon_name )) tambon_name_3 " +
+				"	, decode(p_cer.province_id, 21 , \'เขต\'||d_cer.amphur_name, " +
+				"			\'อ.\'||d_cer.amphur_name ) amphur_name_3 " +
+				"	, decode(p_cer.province_id, 21 , p_receipt2.province_name, "+
+				"			\'จ.\'||p_cer.province_name ) province_name_3 " +
+				"	, c.postcode_certificate " +
+				
+				
+				
+				"from " +
+				"	olp_applicant ap inner join olp_company c on ap.olp_ref_company_id = c.id " +
+				
+				" left outer join hr_prefix prefix_app on ap.PFIX_ID_CANDIDATE = prefix_app.PFIX_ID " +
+				
+				"	left outer join glb_province p on c.province_id_applicant = p.province_id " +
+				"	left outer join glb_district d on c.district_id_applicant = d.amphur_id " +
+				"	left outer join glb_tambon t on c.tambon_id_applicant = t.tambon_id " +
+				
+				
+				"	left outer join glb_province p_receipt on c.province_id_receipt = p_receipt.province_id " +
+				"	left outer join glb_district d_receipt on c.district_id_receipt = d_receipt.amphur_id " +
+				"	left outer join glb_tambon t_receipt on c.tambon_id_receipt = t_receipt.tambon_id " +
+				
+				"	left outer join glb_province p_receipt2 on c.province_id_receipt2 = p_receipt2.province_id " +
+				"	left outer join glb_district d_receipt2 on c.district_id_receipt2 = d_receipt2.amphur_id " +
+				"	left outer join glb_tambon t_receipt2 on c.tambon_id_receipt2 = t_receipt2.tambon_id " +
+				
+				"	left outer join glb_province p_cer on c.province_id_certificate = p_cer.province_id " +
+				"	left outer join glb_district d_cer on c.district_id_certificate = d_cer.amphur_id " +
+				"	left outer join glb_tambon t_cer on c.tambon_id_certificate = t_cer.tambon_id " +
+
+
+
+				
+				"where ap.id in ( " +
+				"	select r.applicant_id from olp_register r where r.fiscal_year = :fiscalYear  and r.status_regis_form != 'ST13' ) " +
+//				"	AND ra.STATUS_CANCLE_ACTIVITY is null " +	
+				"order by ap.customer_code asc";
+		
+		
+		
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("fiscalYear", fiscalYear);
+		
+		
+		
+		List<Map<String, Object>> returnList = this.jdbcTemplate.query(
+				sql1,
+				params,
+				genericRowMapper
+				);
+		
+		logger.debug(sql1);
+		logger.debug("fiscalYear: " + fiscalYear);
+		logger.debug("returnList.size() : " + returnList.size());
+		
+		return returnList;	
+	
+	}
+	
+	
+	@Override
 	public List<Map<String, Object>> findRegistrationsByFiscalYear(String fiscalYear) {
 		// TODO Auto-generated method stub
 		String sql1 = "" +
