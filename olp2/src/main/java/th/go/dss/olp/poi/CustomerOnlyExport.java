@@ -34,7 +34,12 @@ public class CustomerOnlyExport extends AbstractPOIExcelView {
 		// TODO Auto-generated method stub
 		String fiscalYear = (String) model.get("fiscalYear");
 		
-		String worksheetName = "ปี " + fiscalYear;
+		String worksheetName;
+		if(fiscalYear != null) {
+		  worksheetName = "ปี " + fiscalYear;
+		} else {
+			worksheetName = "ลูกค้าทั้งหมด";
+		}
 		logger.debug(worksheetName);
 		
 		@SuppressWarnings("unchecked")

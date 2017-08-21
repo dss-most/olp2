@@ -82,7 +82,7 @@ Ext.onReady(function(){
 			fieldLabel : 'ปีงบประมาณ',
 			name : 'fiscalYear',
 			id : 'text_fiscalYear',
-			allowBlank : false,
+			allowBlank : true,
 			listeners: {
 				change: function(field, newValue, oldValue, eOpts) {
 					//now set url for customer Store
@@ -271,7 +271,7 @@ Ext.onReady(function(){
 				}
 			}
 		},{
-			text : 'Export ทั้งปี เฉพาะชื่อลูกค้า' ,
+			text : 'Export เฉพาะชื่อลูกค้า' ,
 			id : 'btn_exprot_all_customer',
 			listeners : {
 				click : function() {
@@ -282,13 +282,26 @@ Ext.onReady(function(){
 					
 					var fiscalYear = Ext.getCmp('text_fiscalYear').value;
 					
-					form.submit({
-						target: '_blank',
-						url: 'exportCustomerByFiscalYear',
-						params: {
-							fiscalYear: fiscalYear
-						}
-					});
+					if(fiscalYear != null) {
+						form.submit({
+							target: '_blank',
+							url: 'exportCustomerByFiscalYear',
+							params: {
+								fiscalYear: fiscalYear
+							}
+						});
+					} else {
+						form.submit({
+							target: '_blank',
+							url: 'exportAllCustomer',
+							params: {
+								
+							}
+						});
+					}
+					
+					
+					
 				}
 			}
 		} ]

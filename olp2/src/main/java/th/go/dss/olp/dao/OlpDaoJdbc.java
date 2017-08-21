@@ -182,6 +182,18 @@ public class OlpDaoJdbc implements OlpDao {
 
 	@Override
 	public List<Map<String, Object>> findCustomerByFiscalYear(String fiscalYear) {
+		String whereFiscalYear;
+		String act_str = "";
+		if((fiscalYear==null) || fiscalYear.length() ==0) {
+			fiscalYear = null;
+			whereFiscalYear = "";
+			act_str = ", olp_get_act_allYear(ap.id) activities ";
+		} else {
+			whereFiscalYear = "  and r.fiscal_year = :fiscalYear  ";
+			act_str = "	, olp_get_act_from_applicant_id(ap.id, " +fiscalYear +") activities ";
+		}
+		
+		
 		// TODO Auto-generated method stub
 		String sql1 = "" +
 				"select ap.customer_code " +
@@ -193,7 +205,8 @@ public class OlpDaoJdbc implements OlpDao {
 				"	, ap.fax_no " +
 				"	, ap.phon_no " +
 				"	, ap.email " +
-				"	, olp_get_act_from_applicant_id(ap.id, " +fiscalYear +") activities " +
+				
+				act_str +
 				
 				
 				" 	, c.company_th_applicant " +
@@ -292,14 +305,18 @@ public class OlpDaoJdbc implements OlpDao {
 
 				
 				"where ap.id in ( " +
-				"	select r.applicant_id from olp_register r where r.fiscal_year = :fiscalYear  and r.status_regis_form != 'ST13' ) " +
+				"	select r.applicant_id from olp_register r where "
+				+ "r.status_regis_form != 'ST13' "
+				+ whereFiscalYear +
 //				"	AND ra.STATUS_CANCLE_ACTIVITY is null " +	
-				"order by ap.customer_code asc";
+				" ) order by ap.customer_code asc";
 		
 		
 		
 		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("fiscalYear", fiscalYear);
+		if(fiscalYear != null) {
+			params.put("fiscalYear", fiscalYear);
+		}
 		
 		
 		

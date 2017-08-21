@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
-<!-- 2016-10-31T09:35:55 -->
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report3" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="10" bottomMargin="20" isFloatColumnFooter="true" uuid="021470aa-8347-4266-83b3-5fc17dc24f92">
 	<property name="ireport.zoom" value="1.2100000000000224"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<property name="com.jaspersoft.studio.data.sql.tables" value="b2xwX3JlZ2lzdGVyICwxNSwxNSxjZWYwZDA2OS1mNDFhLTRhZmQtYjg1OC0wYjgyODU2ZWU0NDU7&#xA;b2xwX3BsYW4gLDYyNiwxNSwyZjBjZDljOS0yNzgwLTRmNDEtYjZjZi01Y2I1YjU4OWVhYjE7Z2xi&#xA;X3Byb3ZpbmNlICw4NDgsMTUsNDM0MDkwYzctOWMwZS00MTQyLTkwY2UtY2FmMTA0ZTU2ZjJlO2ds&#xA;Yl90YW1ib24gLDEwNzAsMTUsZTVkZDk4YjAtODlkNC00NDIwLWE4MjAtYTUxNzIwYWExYThlO29s&#xA;cF9jb21wYW55ICw3MjksMTUsZDdmYTZjYzgtZGMwNS00OTNhLTk1ZWUtMDE4ZDU1ZTE0MzEwO29s&#xA;cF9hY3Rpdml0eSAsNDAxLDE1LGE3YzFjMTM2LTM1NDgtNDM3ZS1iZGMyLTVmZGEwZmExNjQzYTtv&#xA;bHBfYXBwbGljYW50ICwxMjEsMTUsZDQ4YWY3ZjItYTA2Zi00MmI2LTliNzktZDdiMjRmMjkxOTc5&#xA;O2dsYl9kaXN0cmljdCAsOTY0LDE1LDM2YTdlNjMwLTUwOTAtNDI2Zi04ZmE3LWM2MDRkOGM5YTU5&#xA;MTtvbHBfcmVnaXN0ZXJfYWN0aXZpdHkgLDI0NiwxNSw3NzhlMDcwZC0zNjM0LTQzNmMtYTI5MS0w&#xA;YmIxMjczNzAzNmY7b2xwX2V4YW1wbGUgLDUwOCwxNSw4M2Y5OWUwNi04MWM3LTQ0NTEtOTgyNS05&#xA;YTA2YjQyYjJkYmU7"/>
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[b2xwX3JlZ2lzdGVyICwxNSwxNSxjZWYwZDA2OS1mNDFhLTRhZmQtYjg1OC0wYjgyODU2ZWU0NDU7
+b2xwX3BsYW4gLDYyNiwxNSwyZjBjZDljOS0yNzgwLTRmNDEtYjZjZi01Y2I1YjU4OWVhYjE7Z2xi
+X3Byb3ZpbmNlICw4NDgsMTUsNDM0MDkwYzctOWMwZS00MTQyLTkwY2UtY2FmMTA0ZTU2ZjJlO2ds
+Yl90YW1ib24gLDEwNzAsMTUsZTVkZDk4YjAtODlkNC00NDIwLWE4MjAtYTUxNzIwYWExYThlO29s
+cF9jb21wYW55ICw3MjksMTUsZDdmYTZjYzgtZGMwNS00OTNhLTk1ZWUtMDE4ZDU1ZTE0MzEwO29s
+cF9hY3Rpdml0eSAsNDAxLDE1LGE3YzFjMTM2LTM1NDgtNDM3ZS1iZGMyLTVmZGEwZmExNjQzYTtv
+bHBfYXBwbGljYW50ICwxMjEsMTUsZDQ4YWY3ZjItYTA2Zi00MmI2LTliNzktZDdiMjRmMjkxOTc5
+O2dsYl9kaXN0cmljdCAsOTY0LDE1LDM2YTdlNjMwLTUwOTAtNDI2Zi04ZmE3LWM2MDRkOGM5YTU5
+MTtvbHBfcmVnaXN0ZXJfYWN0aXZpdHkgLDI0NiwxNSw3NzhlMDcwZC0zNjM0LTQzNmMtYTI5MS0w
+YmIxMjczNzAzNmY7b2xwX2V4YW1wbGUgLDUwOCwxNSw4M2Y5OWUwNi04MWM3LTQ0NTEtOTgyNS05
+YTA2YjQyYjJkYmU7]]>
+	</property>
 	<import value="th.go.dss.olp.utils.NumToBaht"/>
 	<import value="th.go.dss.olp.reports.OlpReportUtil"/>
 	<parameter name="fiscalYear" class="java.lang.String"/>
@@ -569,13 +580,6 @@ ORDER BY id ASC,
 					<text><![CDATA[ธนาคาร / สาขา / Bank / Branch]]></text>
 				</staticText>
 				<staticText>
-					<reportElement positionType="FixRelativeToBottom" x="262" y="354" width="81" height="20" uuid="5af3f703-d216-41a2-8d38-9cb61805da9b"/>
-					<textElement textAlignment="Center">
-						<font fontName="TH SarabunPSK" size="12"/>
-					</textElement>
-					<text><![CDATA[เช็คลงวันที่ / Chq Date]]></text>
-				</staticText>
-				<staticText>
 					<reportElement positionType="FixRelativeToBottom" x="343" y="354" width="88" height="20" uuid="13e88987-94fc-4748-a4f4-b5f38001a334"/>
 					<textElement textAlignment="Center">
 						<font fontName="TH SarabunPSK" size="12"/>
@@ -687,6 +691,13 @@ ORDER BY id ASC,
 						<jr:codeExpression><![CDATA[NumToBaht.toBarcode($F{REGISTER_NUMBER},$V{PRICE_1})]]></jr:codeExpression>
 					</jr:Code128>
 				</componentElement>
+				<staticText>
+					<reportElement positionType="FixRelativeToBottom" x="262" y="354" width="81" height="20" uuid="5af3f703-d216-41a2-8d38-9cb61805da9b"/>
+					<textElement textAlignment="Center">
+						<font fontName="TH SarabunPSK" size="12"/>
+					</textElement>
+					<text><![CDATA[เช็คลงวันที่ / Chq Date]]></text>
+				</staticText>
 			</band>
 		</groupFooter>
 	</group>

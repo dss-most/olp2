@@ -56,6 +56,23 @@ public class HomeController {
 		return "reports/"+reportName;
 	}
 	
+	@RequestMapping(value="/reports/exportAllCustomer")
+	public ModelAndView exportAllCustomer(){
+		
+		List<Map<String, Object>> list = null;
+		final Map<String, Object> model = new HashMap<>();
+			
+		list = olpDao.findCustomerByFiscalYear(null);
+		
+		model.put("customerList", list);
+		
+		AbstractPOIExcelView view = new CustomerOnlyExport();
+		ModelAndView returnView = new ModelAndView(view,model);
+		
+		return returnView;
+		
+	}
+	
 	@RequestMapping(value="/reports/exportCustomerByFiscalYear")
 	public ModelAndView exportCustomerByFiscalYear(
 			@RequestParam(required=true) String fiscalYear){
