@@ -4,19 +4,7 @@
 	<property name="ireport.zoom" value="1.2100000000000224"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<property name="com.jaspersoft.studio.data.sql.tables">
-		<![CDATA[b2xwX3JlZ2lzdGVyICwxNSwxNSxjZWYwZDA2OS1mNDFhLTRhZmQtYjg1OC0wYjgyODU2ZWU0NDU7
-b2xwX3BsYW4gLDYyNiwxNSwyZjBjZDljOS0yNzgwLTRmNDEtYjZjZi01Y2I1YjU4OWVhYjE7Z2xi
-X3Byb3ZpbmNlICw4NDgsMTUsNDM0MDkwYzctOWMwZS00MTQyLTkwY2UtY2FmMTA0ZTU2ZjJlO2ds
-Yl90YW1ib24gLDEwNzAsMTUsZTVkZDk4YjAtODlkNC00NDIwLWE4MjAtYTUxNzIwYWExYThlO29s
-cF9jb21wYW55ICw3MjksMTUsZDdmYTZjYzgtZGMwNS00OTNhLTk1ZWUtMDE4ZDU1ZTE0MzEwO29s
-cF9hY3Rpdml0eSAsNDAxLDE1LGE3YzFjMTM2LTM1NDgtNDM3ZS1iZGMyLTVmZGEwZmExNjQzYTtv
-bHBfYXBwbGljYW50ICwxMjEsMTUsZDQ4YWY3ZjItYTA2Zi00MmI2LTliNzktZDdiMjRmMjkxOTc5
-O2dsYl9kaXN0cmljdCAsOTY0LDE1LDM2YTdlNjMwLTUwOTAtNDI2Zi04ZmE3LWM2MDRkOGM5YTU5
-MTtvbHBfcmVnaXN0ZXJfYWN0aXZpdHkgLDI0NiwxNSw3NzhlMDcwZC0zNjM0LTQzNmMtYTI5MS0w
-YmIxMjczNzAzNmY7b2xwX2V4YW1wbGUgLDUwOCwxNSw4M2Y5OWUwNi04MWM3LTQ0NTEtOTgyNS05
-YTA2YjQyYjJkYmU7]]>
-	</property>
+	<property name="com.jaspersoft.studio.data.sql.tables"/>
 	<import value="th.go.dss.olp.utils.NumToBaht"/>
 	<import value="th.go.dss.olp.reports.OlpReportUtil"/>
 	<parameter name="fiscalYear" class="java.lang.String"/>
