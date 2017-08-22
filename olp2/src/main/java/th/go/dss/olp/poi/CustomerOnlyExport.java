@@ -35,7 +35,7 @@ public class CustomerOnlyExport extends AbstractPOIExcelView {
 		String fiscalYear = (String) model.get("fiscalYear");
 		
 		String worksheetName;
-		if(fiscalYear != null) {
+		if(fiscalYear != null && fiscalYear.length() > 0) {
 		  worksheetName = "ปี " + fiscalYear;
 		} else {
 			worksheetName = "ลูกค้าทั้งหมด";

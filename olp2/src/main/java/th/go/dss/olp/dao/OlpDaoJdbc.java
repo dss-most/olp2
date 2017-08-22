@@ -189,7 +189,12 @@ public class OlpDaoJdbc implements OlpDao {
 			whereFiscalYear = "";
 			act_str = ", olp_get_act_allYear(ap.id) activities ";
 		} else {
-			whereFiscalYear = "  and r.fiscal_year = :fiscalYear  ";
+			whereFiscalYear = 
+					"where ap.id in ( " +
+							"	select r.applicant_id from olp_register r where "
+							+ "r.status_regis_form != 'ST13' "
+							+ " and r.fiscal_year = :fiscalYear ) ";
+			
 			act_str = "	, olp_get_act_from_applicant_id(ap.id, " +fiscalYear +") activities ";
 		}
 		
@@ -302,14 +307,11 @@ public class OlpDaoJdbc implements OlpDao {
 				"	left outer join glb_tambon t_cer on c.tambon_id_certificate = t_cer.tambon_id " +
 
 
-
+				whereFiscalYear +
 				
-				"where ap.id in ( " +
-				"	select r.applicant_id from olp_register r where "
-				+ "r.status_regis_form != 'ST13' "
-				+ whereFiscalYear +
+				
 //				"	AND ra.STATUS_CANCLE_ACTIVITY is null " +	
-				" ) order by ap.customer_code asc";
+				" order by ap.customer_code asc";
 		
 		
 		
