@@ -174,7 +174,7 @@ Ext.onReady(function(){
 			xtype: 'grid',
 			id: 'grid_activity',
 			store: activityStore,
-			height: 300,
+			height: 400,
 			columns: [
 			          {text: "สาขา", dataIndex: 'BRANCH_NAME', hidden: true },
 			          {text: "ตัวอย่าง", dataIndex: 'EXAMPLE_NAME', width: 100},
