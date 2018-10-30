@@ -296,7 +296,7 @@ public class HomeController {
 		
 		List<Map<String, Object>> list = null;
 		
-		logger.debug("reportPage");
+		logger.debug("reportPage: " + reportPage);
 		
 		
 		if("quotationReport".equals(reportPage)) {

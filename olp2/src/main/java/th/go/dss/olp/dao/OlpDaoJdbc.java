@@ -242,9 +242,11 @@ public class OlpDaoJdbc implements OlpDao {
 				"	, decode(nvl(c.tambon_id_receipt,\'0\'), \'0\', \' \', " +
 				"  			decode(p_receipt.province_id, 21 , \'แขวง\'||t_receipt.tambon_name, " +
 				"  					\'ต.\'||t_receipt.tambon_name )) tambon_name_1 " +
-				"	, decode(p_receipt.province_id, 21 , \'เขต\'||d_receipt.amphur_name, " +
-				"			\'อ.\'||d_receipt.amphur_name ) amphur_name_1 " +
-				"	, decode(p_receipt.province_id, 21 , p_receipt.province_name, "+
+				"           decode(p_receipt.province_id, 21 , \'เขต\'||d_receipt.amphur_name, " +
+				"			\'อ.\'||d_receipt.amphur_name )) amphur_name_1 " +
+				
+				"	, decode(nvl(p_receipt.province_id,\'0\'), \'0\', \' ', " + 
+				"		 decode(p_receipt.province_id, 21 , p_receipt.province_name, "+
 				"			\'จ.\'||p_receipt.province_name ) province_name_1 " +
 
 				"	, c.postcode_receipt " +
@@ -800,11 +802,16 @@ where a.activity_code like 'D01' and r.fiscal_year='2555'
 				"	, decode(nvl(c.tambon_id_receipt,\'0\'), \'0\', \' \', " +
                 "  			decode(p.province_id, 21 , \'แขวง\'||t.tambon_name, " +
                 "  					\'ตำบล\'||t.tambon_name )) tambon " +
-                "	, decode(p.province_id, 21 , \'เขต\'||d.amphur_name, " +
-				"			\'อำเภอ\'||d.amphur_name ) amphur " +
-				"	, decode(p.province_id, 21 , p.province_name, "+
-				"			\'จังหวัด\'||p.province_name ) province " +
-				"	, c.postcode_receipt postcode " +
+                
+                "	, decode(nvl(d.amphur_id, \'0\'), \'0\', \' \', " +
+                "			decode(p.province_id, 21 , \'เขต\'||d.amphur_name, " +
+				"				\'อำเภอ\'||d.amphur_name )) amphur " +
+                
+ 				"	, decode(nvl(p.province_id, \'0\'), \'0\', \' \', " +
+				"			decode(p.province_id, 21 , p.province_name, "+
+				"			\'จังหวัด\'||p.province_name )) province " +
+				
+				"	, nvl(c.postcode_receipt,\' \') postcode " +
 				"	, ra.exam_num "	+ 
 				"	, ra.amount ra_amount" +
 				"	, upper(substr(a.activity_code,1,2)) code2Letter " +
@@ -1016,11 +1023,15 @@ order by act.activity_code;
 				"	, decode(nvl(c.tambon_id_receipt,\'0\'), \'0\', \' \', " +
                 "  			decode(p.province_id, 21 , \'แขวง\'||t.tambon_name, " +
                 "  					\'ตำบล\'||t.tambon_name )) tambon " +
-                "	, decode(p.province_id, 21 , \'เขต\'||d.amphur_name, " +
-				"			\'อำเภอ\'||d.amphur_name ) amphur " +
-				"	, decode(p.province_id, 21 , p.province_name, "+
-				"			\'จังหวัด\'||p.province_name ) province " +
-				"	, c.postcode_receipt postcode " +
+                
+                "	, decode(nvl(d.amphur_id,\'0\'), \'0\', \' \', " +
+                "			decode(p.province_id, 21 , \'เขต\'||d.amphur_name, " +
+				"			\'อำเภอ\'||d.amphur_name )) amphur " +
+                
+				"	, decode(nvl(p.province_id,\'0\'), \'0\', \' \', " +
+				"			decode(p.province_id, 21 , p.province_name, "+
+				"			\'จังหวัด\'||p.province_name )) province " +
+				"	, nvl(c.postcode_receipt, \' \') postcode " +
 				"	, ra.exam_num exam_num " +
 				"	, ra.amount ra_amount " + 
 				"from " +
