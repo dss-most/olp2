@@ -5,7 +5,7 @@
 
 	<groupId>th.go.dss</groupId>
 	<artifactId>olp2</artifactId>
-	<version>2.0.8.3-RELEASE</version>
+	<version>2.0.8.4-RELEASE</version>
 	<packaging>war</packaging>
 
 	<name>olp</name>

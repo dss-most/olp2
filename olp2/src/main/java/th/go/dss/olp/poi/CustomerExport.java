@@ -65,7 +65,9 @@ public class CustomerExport extends AbstractPOIExcelView {
 		sheet.setColumnWidth(colCount++, 15*256);	// 8 H
 		sheet.setColumnWidth(colCount++, 15*256);	// 9 I
 		sheet.setColumnWidth(colCount++, 20*256);	// 10 J
-		sheet.setColumnWidth(colCount++, 20*256);	// 11 K
+		sheet.setColumnWidth(colCount++, 20*256);	// 11 K - email
+		
+		sheet.setColumnWidth(colCount++, 20*256);	// 11 K - email OLP_APP_LOGIN
 		
 		sheet.setColumnWidth(colCount++, 10*256);	// 12 L
 		sheet.setColumnWidth(colCount++, 20*256);	// 12 L
@@ -142,6 +144,7 @@ public class CustomerExport extends AbstractPOIExcelView {
 		columnList.add("เบอร์มือถือ");		// column 7
 		columnList.add("โทรสาร");		// column 8
 		columnList.add("อีเมล์");		// column 9
+		columnList.add("อีเมล์ Interrim");		// column 9
 		
 		columnList.add("ประเภทหน่วยงาน");		// column 10
 		columnList.add("หน่วยงาน (ไทย)");		// column 10
@@ -310,6 +313,10 @@ public class CustomerExport extends AbstractPOIExcelView {
 			cell = row.createCell(col++);
 			cell.setCellStyle(style);
 			cell.setCellValue(rowData.get("EMAIL")!=null?rowData.get("EMAIL").toString():"");
+			
+			cell = row.createCell(col++);
+			cell.setCellStyle(style);
+			cell.setCellValue(rowData.get("OLP_APP_LOGIN")!=null?rowData.get("OLP_APP_LOGIN").toString():"");
 
 			String orgType = rowData.get("ORG_TYPE") != null ? rowData.get("ORG_TYPE").toString():"";
 			if(orgType.equals("T1")) {

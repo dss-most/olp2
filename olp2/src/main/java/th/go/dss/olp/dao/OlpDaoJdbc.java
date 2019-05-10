@@ -500,6 +500,7 @@ public class OlpDaoJdbc implements OlpDao {
 				"	, ap.fax_no " +
 				"	, ap.phon_no " +
 				"	, ap.email " +
+				"	, ap.OLP_APP_LOGIN " +
 				"	, ap.SEND_MISSIVE_NAME " +
 				"	, c.org_Type " +
 				

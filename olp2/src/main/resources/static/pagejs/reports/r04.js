@@ -207,6 +207,8 @@ Ext.onReady(function(){
 				 	{text: "เบอร์มือถือ", dataIndex: 'PHON_NO', cellWrap:true, width:120},
 				 	{text: "โทรสาร", dataIndex: 'FAX_NO', cellWrap:true, width:120},
 				 	{text: "อีเมล์", dataIndex: 'EMAIL', cellWrap:true, width:200},
+				 	{text: "อีเมล์ interim", dataIndex: 'OLP_APP_LOGIN', cellWrap:true, width:200},
+				 	
 				 	
 				 	{text: "หน่วยงาน (ไทย)", dataIndex: 'COMPANY_TH_APPLICANT',  cellWrap:true, width: 200},
 				 	{text: "หน่วยงาน (eng)", dataIndex: 'COMPANY_EN_APPLICANT',  cellWrap:true, width: 200},
