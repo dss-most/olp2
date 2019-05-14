@@ -55,7 +55,7 @@ public class BackOfficeSecDaoJdbc implements BackOfficeSecDao {
 				"select g.group_code from s_user s, s_group_list gl, s_group g " +
 				"where  s.id = gl.s_user_id and g.id = gl.s_group_id  " +
 				"		and g.GROUP_CODE like 'OLP_ADMIN' " +
-				"	s.login like UPPER(?) and s.password like ? ";
+				"	    and s.login like UPPER(?) and s.password like ? ";
 	
 		List<GrantedAuthority> returnList = this.jdbcTemplate.query(
 				sql,
