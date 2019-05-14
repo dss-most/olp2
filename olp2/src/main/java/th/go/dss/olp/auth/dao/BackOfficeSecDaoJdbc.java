@@ -53,7 +53,7 @@ public class BackOfficeSecDaoJdbc implements BackOfficeSecDao {
 	public List<GrantedAuthority> getGrantedAuthority(Authentication auth) {
 		String sql = "" +
 				"select g.group_code from s_user s, s_group_list gl, s_group g " +
-				"where  s.id = gl.s_user_id and g.id = gl.s_group_id and " +
+				"where  s.id = gl.s_user_id and g.id = gl.s_group_id  " +
 				"		and g.GROUP_CODE like 'OLP_ADMIN' " +
 				"	s.login like UPPER(?) and s.password like ? ";
 	
