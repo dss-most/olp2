@@ -24,7 +24,7 @@ Ext.onReady(function(){
 		id: 'store_registerStore',
 		proxy: {
 			type: 'ajax',
-			url: appUrl('/json/listRegister')
+			url: appUrl('json/listRegister')
 		}
 	});
 	
@@ -34,7 +34,7 @@ Ext.onReady(function(){
 		groupField: 'BRANCH_NAME',
 		proxy : {
 			type : 'ajax',
-			url : appUrl('/json/listActivity')
+			url : appUrl('json/listActivity')
 		}
 	});
 	
@@ -47,7 +47,7 @@ Ext.onReady(function(){
 		id : 'store_customerStore',
 		proxy : {
 			type : 'ajax',
-			url : appUrl('/json/listCustomer')
+			url : appUrl('json/listCustomer')
 		}
 	});
 
@@ -85,7 +85,7 @@ Ext.onReady(function(){
 					});
 					
 					//now set url for customer Store
-					Ext.getStore('store_customerStore').setProxy({type:'ajax', url:appUrl('/json/listCustomer/')+newValue});
+					Ext.getStore('store_customerStore').setProxy({type:'ajax', url:appUrl('json/listCustomer/')+newValue});
 					currentFiscalYear = newValue;
 				}
 			}

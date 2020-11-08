@@ -28,7 +28,7 @@ Ext.onReady(function(){
 		groupField: 'PLAN_ID',
 		proxy: {
 			type: 'ajax',
-			url: appUrl('/json/listPlanActivity')
+			url: appUrl('json/listPlanActivity')
 		}
 	});
 	

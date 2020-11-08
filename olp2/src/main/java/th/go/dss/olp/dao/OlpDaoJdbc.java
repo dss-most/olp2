@@ -33,7 +33,6 @@ public class OlpDaoJdbc implements OlpDao {
 	private NamedParameterJdbcTemplate jdbcTemplate;
 	
 	@Autowired() 
-	@Qualifier("dataSource")
 	public void setDataSource(DataSource ds) {
 		this.jdbcTemplate = new NamedParameterJdbcTemplate(ds);
 	}

@@ -14,7 +14,7 @@ Ext.onReady(function(){
 		id: 'store_registerStore',
 		proxy: {
 			type: 'ajax',
-			url: appUrl('/json/listRegister')
+			url: appUrl('json/listRegister')
 		}
 	});
 	
@@ -23,7 +23,7 @@ Ext.onReady(function(){
 		id: 'store_firstRegisterIdStore',
 		proxy: {
 			type: 'ajax',
-			url: appUrl('/json/listRegisterNumber')
+			url: appUrl('json/listRegisterNumber')
 		}
 	});
 	
@@ -39,7 +39,7 @@ Ext.onReady(function(){
 	
 	var simpleForm = Ext.create('Ext.form.Panel', {
 		id : 'mainForm',
-		url :  appUrl('/reports/pdfReportByRegisterIds'),
+		url :  appUrl('reports/pdfReportByRegisterIds'),
 		frame : true,
 		title : 'พิมพ์ใบแจ้งหนี้ชำระค่าธรรมเนียม',
 		bodyStyle : 'padding:5px 5px 0',

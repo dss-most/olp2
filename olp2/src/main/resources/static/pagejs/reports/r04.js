@@ -48,7 +48,7 @@ Ext.onReady(function(){
 		groupField: 'PLAN_ID',
 		proxy: {
 			type: 'ajax',
-			url: appUrl('/json/listPlanActivity')
+			url: appUrl('json/listPlanActivity')
 		}
 	});
 	
@@ -57,7 +57,7 @@ Ext.onReady(function(){
 		id : 'store_customerStore',
 		proxy : {
 			type : 'ajax',
-			url : appUrl('/json/listRegisterByActivtiy')
+			url : appUrl('json/listRegisterByActivtiy')
 		}
 	});
 

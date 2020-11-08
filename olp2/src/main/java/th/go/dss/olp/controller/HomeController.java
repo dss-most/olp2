@@ -18,8 +18,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.View;
-import org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView;
+
+import com.googlecode.jthaipdf.spring.web.view.JasperReportsPdfView;
+import com.googlecode.jthaipdf.spring.web.view.ThJasperReportsPdfView;
 
 import net.sf.jasperreports.engine.JRRewindableDataSource;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
@@ -29,7 +30,6 @@ import th.go.dss.olp.poi.CustomerExport;
 import th.go.dss.olp.poi.CustomerOnlyExport;
 import th.go.dss.olp.poi.EMSExport;
 import th.go.dss.olp.poi.PlanActivityExcelExport;
-import th.go.dss.olp.reports.ThJasperReportsPdfView;
 
 @Controller
 public class HomeController {
@@ -45,7 +45,7 @@ public class HomeController {
 	
 	@RequestMapping("/") 
 	public String login(Model model) {
-		
+		logger.debug("home");
 		return "home";
 	}
 	
