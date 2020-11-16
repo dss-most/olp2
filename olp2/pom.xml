@@ -5,7 +5,7 @@
 
 	<groupId>th.go.dss</groupId>
 	<artifactId>olp2</artifactId>
-	<version>2.1-RELEASE</version>
+	<version>2.1.1-RELEASE</version>
 	<packaging>war</packaging>
 
 	<name>olp</name>
@@ -30,8 +30,8 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<resource.delimiter>${*}</resource.delimiter>
-		<jasperreport.version>6.3.1</jasperreport.version>
-		<jasperreport-fonts.version>6.0.0</jasperreport-fonts.version>
+		<jasperreport.version>6.16.0</jasperreport.version>
+		<jasperreport-fonts.version>6.16.0</jasperreport-fonts.version>
 	</properties>
 	
 	<repositories>
@@ -41,6 +41,13 @@
     		<url>https://nexus.dss.go.th/repository/maven-public/</url>
     	</repository>	
     </repositories>
+    <pluginRepositories>
+    	<pluginRepository>
+    		<id>dss release</id>	
+    		<name>DSS Nexus</name>
+    		<url>https://nexus.dss.go.th/repository/maven-public/</url>    	
+    	</pluginRepository>
+    </pluginRepositories>
 
 	<dependencies>
 		<dependency>
