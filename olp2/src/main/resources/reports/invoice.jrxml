@@ -497,7 +497,7 @@ ORDER BY id ASC,
 					<textElement>
 						<font fontName="TH SarabunPSK"/>
 					</textElement>
-					<text><![CDATA[Company Code:  7008447]]></text>
+					<text><![CDATA[Company Code:  9470]]></text>
 				</staticText>
 				<staticText>
 					<reportElement positionType="FixRelativeToBottom" x="24" y="266" width="84" height="14" uuid="80afb245-d33e-4470-9697-b84b5380799b"/>
