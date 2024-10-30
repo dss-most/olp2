@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report3" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="10" bottomMargin="20" isFloatColumnFooter="true" uuid="021470aa-8347-4266-83b3-5fc17dc24f92">
 	<property name="ireport.zoom" value="1.2100000000000224"/>
 	<property name="ireport.x" value="0"/>
@@ -191,7 +191,7 @@ ORDER BY id ASC,
 					</textElement>
 					<textFieldExpression><![CDATA[( $P{isEnglishAddress} == true ? $F{COMPANY_EN_RECEIPT} : $F{COMPANY_TH_RECEIPT} )]]></textFieldExpression>
 				</textField>
-				<textField isStretchWithOverflow="true">
+				<textField textAdjust="StretchHeight">
 					<reportElement x="78" y="78" width="456" height="28" uuid="d02f4909-6725-4348-ad93-264631a02e75">
 						<property name="local_mesure_unity" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.y" value="px"/>
@@ -210,11 +210,12 @@ ORDER BY id ASC,
 					<text><![CDATA[ค่าธรรมเนียม (บาท)]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="0" y="11" width="555" height="43" uuid="eca72d1b-cbda-4978-880c-5acbfdee7b19"/>
+					<reportElement x="0" y="5" width="555" height="49" uuid="eca72d1b-cbda-4978-880c-5acbfdee7b19"/>
 					<textElement textAlignment="Center" markup="styled">
 						<font fontName="TH SarabunPSK" size="16" isBold="true"/>
+						<paragraph lineSpacing="Fixed" lineSpacingSize="10.0"/>
 					</textElement>
-					<textFieldExpression><![CDATA["ใบแจ้งชำระค่าธรรมเนียมกิจกรรมทดสอบความชำนาญปีงบประมาณ " + $P{fiscalYear} + "<br/>ศูนย์บริหารจัดการทดสอบความชำนาญห้องปฏิบัติการ กรมวิทยาศาสตร์บริการ"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["ใบแจ้งชำระค่าบริการเข้าร่วมกิจกรรมทดสอบความชำนาญปีงบประมาณ " + $P{fiscalYear} + "<br/>ศูนย์ทดสอบความชำนาญห้องปฏิบัติการ สถาบันพัฒนามาตรฐานและตรวจสอบรับรอง <br/>กรมวิทยาศาสตร์บริการ"]]></textFieldExpression>
 				</textField>
 				<componentElement>
 					<reportElement x="479" y="26" width="75" height="28" uuid="78d776e9-6fdd-4838-9a5f-ef9c3fe82dd2"/>
@@ -296,7 +297,7 @@ ORDER BY id ASC,
 					<textElement markup="styled">
 						<font fontName="TH SarabunPSK" size="12"/>
 					</textElement>
-					<text><![CDATA[     <b>ได้รับเงินค่าธรรมเนียมกิจกรรมการทดสอบความชำนาญ</b>
+					<text><![CDATA[     <b>ได้รับเงินค่าบริการเข้าร่วมกิจกรรมทดสอบความชำนาญ</b>
 รวมเป็นเงิน                                                                                     บาท
 ใบเสร็จเลขที่                  /                       เลขที่
 ชื่อ                                                                                           ผู้รับเงิน
@@ -331,17 +332,18 @@ ORDER BY id ASC,
 					<textElement markup="styled">
 						<font fontName="TH SarabunPSK" size="14"/>
 					</textElement>
-					<text><![CDATA[<b><u>วิธีการชำระเงิน</u></b> สามารถดำเนินการได้ 2 วิธีดังนี้ (โปรดแจ้งวิธีชำระเงินให้ส่วนงานการเงิน/บัญชี ของหน่วยงาน/บริษัทท่านทราบด้วย)]]></text>
+					<text><![CDATA[<b><u>วิธีการชำระเงิน</u></b> สามารถดำเนินการได้ 3 วิธีดังนี้ (โปรดแจ้งวิธีชำระเงินให้ส่วนงานการเงิน/บัญชี ของหน่วยงาน/บริษัทท่านทราบด้วย)]]></text>
 				</staticText>
 				<staticText>
 					<reportElement positionType="FixRelativeToBottom" x="21" y="22" width="530" height="113" uuid="81b4f63e-8c8b-4d7e-87cc-e70d8043f730"/>
 					<textElement markup="styled">
 						<font fontName="TH SarabunPSK" size="12"/>
+						<paragraph lineSpacing="Fixed" lineSpacingSize="9.0"/>
 					</textElement>
 					<text><![CDATA[นำเอกสารฉบับนี้ติดต่อชำระเงินได้ที่<b><u>เคาน์เตอร์ธนาคารกรุงไทย จำกัด (มหาชน) ได้ทุกสาขาและชำระค่าธรรมเนียม 15 บาท </u></b> สามารถชำระเป็นเงินสด หรือเช็คของบริษัท สั่งจ่ายในนาม <b><u>"กรมวิทยาศาสตร์บริการ"</u></b> โดยไม่ต้องส่งหลักฐานการโอนให้งานการเงิน กรมวิทยาศาสตร์บริการจะตรวจสอบและออกใบเสร็จรับเงิน ส่งให้ตามชื่อที่อยู่แบบยืนยัน (สิ่งที่ส่งมาด้วย 1)
-นำเอกสารฉบับนี้ติดต่อชำระเงินได้ที่<b><u>เคาน์เตอร์งานการเงิน ฝ่ายการคลัง กรมวิทยาศาสตร์บริการ</u></b> ชั้น 1 อาคารตั้ว ลพานุกรม ถ.พระรามที่ 6 <br/>เขตราชเทวี กทม. <b><u>ในวันและเวลาราชการ</u></b> สามารถชำระเป็นเงินสด หรือเช็คของบริษัท สั่งจ่ายในนาม <b><u>"กรมวิทยาศาสตร์บริการ" (รับเฉพาะเช็คธนาคารในเขตกรุงเทพฯ และปริมณฑล โดยวันที่ในเช็คต้องไม่เกิน 15 วันในวันที่ชำระ </u></b>พร้อมรับใบเสร็จรับเงินได้ทันที)
+นำเอกสารฉบับนี้ติดต่อชำระเงินได้ที่<b><u>เคาน์เตอร์งานการเงิน ฝ่ายการคลัง กรมวิทยาศาสตร์บริการ</u></b> ชั้น 1 อาคารตั้ว ลพานุกรม ถ.พระรามที่ 6 <br/>เขตราชเทวี กทม. <b><u>ในวันและเวลาราชการ</u></b> สามารถชำระเป็นเงินสด หรือเช็คของบริษัท สั่งจ่ายในนาม <b><u>"กรมวิทยาศาสตร์บริการ" (รับเฉพาะเช็คธนาคารในเขตกรุงเทพฯ และปริมณฑล โดยวันที่ในเช็คต้องไม่เกิน 15 วันในวันที่ชำระ </u></b>พร้อมรับใบเสร็จรับเงินได้ทันที) <br/> แสกนบาร์โค้ดผ่านแอพพลิเคชั่นธนาคารได้ทุกธนาคาร
 หากท่านมีปัญหา/ข้อสงสัยเกี่ยวกับการชำระเงิน และการออกใบเสร็จรับเงิน กรุณาติดต่อ งานการเงิน ฝ่ายการคลัง กรมวิทยาศาสตร์บริการ <u>โทร 0-2201-7086</u>
-หากท่านมีปัญหา/ข้อสงสัยเกี่ยวกับกิจกรรมทดสอบความชำนาญ กรุณาติดต่อ ศูนย์บริหารจัดการทดสอบความชำนาญห้องปฏิบัติการ <u>โทร 0-2201-7331-3</u>
+หากท่านมีปัญหา/ข้อสงสัยเกี่ยวกับกิจกรรมทดสอบความชำนาญ กรุณาติดต่อ ศูนย์ทดสอบความชำนาญห้องปฏิบัติการ <u>โทร 0-2201-7331-3</u>
 ]]></text>
 				</staticText>
 				<staticText>
@@ -378,7 +380,7 @@ ORDER BY id ASC,
 					<text><![CDATA[1.]]></text>
 				</staticText>
 				<staticText>
-					<reportElement positionType="FixRelativeToBottom" x="12" y="62" width="10" height="20" uuid="e784e495-c893-4575-8200-67a3233e11ca">
+					<reportElement positionType="FixRelativeToBottom" x="12" y="57" width="10" height="20" uuid="e784e495-c893-4575-8200-67a3233e11ca">
 						<property name="local_mesure_unitwidth" value="pixel"/>
 						<property name="local_mesure_unitx" value="pixel"/>
 						<property name="local_mesure_unity" value="pixel"/>
@@ -389,7 +391,7 @@ ORDER BY id ASC,
 					<text><![CDATA[2.]]></text>
 				</staticText>
 				<staticText>
-					<reportElement positionType="FixRelativeToBottom" x="15" y="103" width="10" height="32" uuid="c7d205f1-9a62-4c04-8eb7-a3bf6cef02b2">
+					<reportElement positionType="FixRelativeToBottom" x="15" y="105" width="10" height="32" uuid="c7d205f1-9a62-4c04-8eb7-a3bf6cef02b2">
 						<property name="local_mesure_unitwidth" value="pixel"/>
 						<property name="local_mesure_unitx" value="pixel"/>
 						<property name="local_mesure_unity" value="pixel"/>
@@ -398,6 +400,7 @@ ORDER BY id ASC,
 					</reportElement>
 					<textElement>
 						<font fontName="TH SarabunPSK" size="12"/>
+						<paragraph lineSpacing="Fixed" lineSpacingSize="10.0"/>
 					</textElement>
 					<text><![CDATA[-
 -]]></text>
@@ -686,6 +689,17 @@ ORDER BY id ASC,
 					</textElement>
 					<text><![CDATA[เช็คลงวันที่ / Chq Date]]></text>
 				</staticText>
+				<staticText>
+					<reportElement positionType="FixRelativeToBottom" x="12" y="93" width="10" height="20" uuid="221a538c-4476-4528-a4c1-587456b43ac4">
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="local_mesure_unity" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font fontName="TH SarabunPSK" size="12"/>
+					</textElement>
+					<text><![CDATA[3.]]></text>
+				</staticText>
 			</band>
 		</groupFooter>
 	</group>
@@ -757,7 +771,7 @@ ORDER BY id ASC,
 				</textElement>
 				<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true">
+			<textField textAdjust="StretchHeight">
 				<reportElement stretchType="RelativeToTallestObject" x="55" y="0" width="334" height="15" printWhenGroupChanges="RegisterNumber" uuid="f46f1210-a34e-4dca-964d-482d591aa7f1"/>
 				<box rightPadding="8"/>
 				<textElement>
